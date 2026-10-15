@@ -36,17 +36,17 @@
   --ark-mute: #767b85;
   --ark-hair: #e7e8eb;
   --ark-wash: #f6f6f7;
-  --ark-signal: #7c4ddb;         /* Améthyste Arkerion */
-  --ark-signal-soft: #efe8fc;    /* teinte claire : fonds actifs, surlignage */
-  --ark-signal-deep: #6a3cc9;    /* survol, texte actif */
+  --ark-signal: #6e569f;         /* Améthyste Arkerion */
+  --ark-signal-soft: #f1edf7;    /* teinte claire : fonds actifs, surlignage */
+  --ark-signal-deep: #5b4587;    /* survol, texte actif */
 
-  --ifm-color-primary: #7c4ddb;
-  --ifm-color-primary-dark: #6e3cd6;
-  --ifm-color-primary-darker: #6735d3;
-  --ifm-color-primary-darkest: #5428b5;
-  --ifm-color-primary-light: #8c62df;
-  --ifm-color-primary-lighter: #946de2;
-  --ifm-color-primary-lightest: #ae8fe8;
+  --ifm-color-primary: #6e569f;
+  --ifm-color-primary-dark: #644e91;
+  --ifm-color-primary-darker: #5f4a89;
+  --ifm-color-primary-darkest: #4e3d71;
+  --ifm-color-primary-light: #7d66ab;
+  --ifm-color-primary-lighter: #866fb2;
+  --ifm-color-primary-lightest: #a08ec3;
   --ifm-link-color: var(--ark-signal);
   --ifm-link-hover-color: var(--ark-signal-deep);
   --ifm-menu-color-active: var(--ark-signal-deep);
@@ -65,7 +65,7 @@
   --ifm-pre-background: #fbfbfc;
   --ifm-pre-line-height: 1.65;
   --ifm-global-radius: 8px;
-  --docusaurus-highlighted-code-line-bg: rgba(124, 77, 219, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgba(110, 86, 159, 0.1);
 }
 
 [data-theme='dark'] {
@@ -74,17 +74,17 @@
   --ark-mute: #8b919c;
   --ark-hair: #2a2d34;
   --ark-wash: #1b1d22;
-  --ark-signal: #a98bf0;
-  --ark-signal-soft: rgba(169, 139, 240, 0.16);
-  --ark-signal-deep: #c5b0f5;
+  --ark-signal: #b4a4d6;
+  --ark-signal-soft: rgba(180, 164, 214, 0.16);
+  --ark-signal-deep: #cbbee4;
 
-  --ifm-color-primary: #a98bf0;
-  --ifm-color-primary-dark: #9672ec;
-  --ifm-color-primary-darker: #8d66ea;
-  --ifm-color-primary-darkest: #6f3fe3;
-  --ifm-color-primary-light: #bca4f4;
-  --ifm-color-primary-lighter: #c5b0f5;
-  --ifm-color-primary-lightest: #e0d4fa;
+  --ifm-color-primary: #b4a4d6;
+  --ifm-color-primary-dark: #a391cd;
+  --ifm-color-primary-darker: #9a87c8;
+  --ifm-color-primary-darkest: #7f69b9;
+  --ifm-color-primary-light: #c5b7df;
+  --ifm-color-primary-lighter: #cbbee4;
+  --ifm-color-primary-lightest: #e2dbf0;
   --ifm-link-color: var(--ark-signal);
   --ifm-link-hover-color: var(--ark-signal-deep);
   --ifm-menu-color-active: var(--ark-signal-deep);
@@ -92,7 +92,7 @@
   --ifm-background-color: #111215;
   --ifm-background-surface-color: #111215;
   --ifm-pre-background: #17191e;
-  --docusaurus-highlighted-code-line-bg: rgba(169, 139, 240, 0.14);
+  --docusaurus-highlighted-code-line-bg: rgba(180, 164, 214, 0.14);
 }
 
 body {
@@ -177,7 +177,7 @@ pre code {
 
 /* Sélection de texte : aplat améthyste, texte blanc. */
 ::selection {
-  background: #7c4ddb;
+  background: #6e569f;
   color: #ffffff;
 }
 
