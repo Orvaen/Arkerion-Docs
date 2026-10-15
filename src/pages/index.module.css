@@ -86,7 +86,7 @@
 }
 
 .card:hover {
-  border-color: var(--ark-ink);
+  border-color: var(--ark-signal);
 }
 
 .cardTitle {

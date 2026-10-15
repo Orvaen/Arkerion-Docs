@@ -52,7 +52,6 @@ const config = {
           { type: 'docSidebar', sidebarId: 'docs', position: 'left', label: 'Documentation' },
           { to: '/docs/identite/logo', position: 'left', label: 'Identité' },
           { to: '/docs/produits/nebula', position: 'left', label: 'Nebula' },
-          { href: 'https://rayan-studio.github.io/Arkerion-Docs/ide/', position: 'right', label: 'Test IDE' },
           { href: 'https://github.com/rayan-studio/Arkerion-Docs', position: 'right', label: 'GitHub' },
         ],
       },

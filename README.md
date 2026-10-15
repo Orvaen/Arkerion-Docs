@@ -39,7 +39,6 @@ src/
 static/
   fonts/              Arkerion Sans et Arkerion Mono à télécharger (TTF, OTF)
   img/logo/           logos SVG noir et blanc
-  ide/                page de test des polices dans un éditeur de code
 sources/              générateur Python des polices (fontTools)
 ```
 

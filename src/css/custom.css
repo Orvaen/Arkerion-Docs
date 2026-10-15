@@ -1,4 +1,5 @@
-/* Arkerion Docs — thème : polices Arkerion, noir sur blanc, un accent bleu. */
+/* Arkerion Docs — thème : polices Arkerion, noir sur blanc, et le Jaune Arkerion
+   comme couleur signature (sélection, soulignements, états actifs, focus). */
 
 @font-face {
   font-family: 'Arkerion Sans';
@@ -35,15 +36,22 @@
   --ark-mute: #767b85;
   --ark-hair: #e7e8eb;
   --ark-wash: #f6f6f7;
-  --ark-blue: #1f4fd1;
+  --ark-signal: #ffc72c;         /* Jaune Arkerion */
+  --ark-signal-soft: #fff1c2;    /* teinte claire : fonds actifs */
+  --ark-signal-deep: #8a6100;    /* version texte, lisible sur blanc */
 
-  --ifm-color-primary: #1f4fd1;
-  --ifm-color-primary-dark: #1c47bc;
-  --ifm-color-primary-darker: #1a43b2;
-  --ifm-color-primary-darkest: #163792;
-  --ifm-color-primary-light: #3462dc;
-  --ifm-color-primary-lighter: #3f6bde;
-  --ifm-color-primary-lightest: #6087e4;
+  /* L'accent d'interface reste l'encre ; le jaune souligne et surligne. */
+  --ifm-color-primary: #0d0e10;
+  --ifm-color-primary-dark: #000000;
+  --ifm-color-primary-darker: #000000;
+  --ifm-color-primary-darkest: #000000;
+  --ifm-color-primary-light: #2a2c31;
+  --ifm-color-primary-lighter: #43474f;
+  --ifm-color-primary-lightest: #767b85;
+  --ifm-link-color: var(--ark-ink);
+  --ifm-link-hover-color: var(--ark-ink);
+  --ifm-menu-color-active: var(--ark-ink);
+  --ifm-menu-color-background-active: var(--ark-signal-soft);
   --ifm-font-color-base: var(--ark-ink);
   --ifm-color-content-secondary: var(--ark-soft);
   --ifm-background-color: #ffffff;
@@ -58,7 +66,7 @@
   --ifm-pre-background: #fbfbfc;
   --ifm-pre-line-height: 1.65;
   --ifm-global-radius: 8px;
-  --docusaurus-highlighted-code-line-bg: rgba(31, 79, 209, 0.08);
+  --docusaurus-highlighted-code-line-bg: rgba(255, 199, 44, 0.22);
 }
 
 [data-theme='dark'] {
@@ -67,19 +75,25 @@
   --ark-mute: #8b919c;
   --ark-hair: #2a2d34;
   --ark-wash: #1b1d22;
-  --ark-blue: #7ea2ff;
+  --ark-signal: #ffc72c;
+  --ark-signal-soft: rgba(255, 199, 44, 0.16);
+  --ark-signal-deep: #ffd666;
 
-  --ifm-color-primary: #7ea2ff;
-  --ifm-color-primary-dark: #5f8bff;
-  --ifm-color-primary-darker: #4f80ff;
-  --ifm-color-primary-darkest: #2063ff;
-  --ifm-color-primary-light: #9db9ff;
-  --ifm-color-primary-lighter: #adc4ff;
-  --ifm-color-primary-lightest: #dbe5ff;
+  --ifm-color-primary: #ffc72c;
+  --ifm-color-primary-dark: #ffbd05;
+  --ifm-color-primary-darker: #f5b400;
+  --ifm-color-primary-darkest: #c99400;
+  --ifm-color-primary-light: #ffd257;
+  --ifm-color-primary-lighter: #ffd76b;
+  --ifm-color-primary-lightest: #ffe7a6;
+  --ifm-link-color: var(--ark-ink);
+  --ifm-link-hover-color: var(--ark-ink);
+  --ifm-menu-color-active: var(--ark-ink);
+  --ifm-menu-color-background-active: var(--ark-signal-soft);
   --ifm-background-color: #111215;
   --ifm-background-surface-color: #111215;
   --ifm-pre-background: #17191e;
-  --docusaurus-highlighted-code-line-bg: rgba(126, 162, 255, 0.12);
+  --docusaurus-highlighted-code-line-bg: rgba(255, 199, 44, 0.14);
 }
 
 body {
@@ -156,4 +170,73 @@ pre code {
 .footer--light {
   background: var(--ifm-background-color);
   border-top: 1px solid var(--ark-hair);
+}
+
+/* ------------------------------------------------------------------
+   Couleur signature : Jaune Arkerion
+   ------------------------------------------------------------------ */
+
+/* Sélection de texte : un surligneur jaune, texte toujours en encre. */
+::selection {
+  background: var(--ark-signal);
+  color: #0d0e10;
+}
+
+/* Liens du contenu : encre, soulignés en jaune. */
+.markdown a,
+.footer a.footer__link-item:hover {
+  color: var(--ark-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--ark-signal);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  transition: background-color 0.15s ease;
+}
+
+.markdown a:hover {
+  background: var(--ark-signal-soft);
+  text-decoration-color: var(--ark-signal);
+}
+
+/* Focus clavier visible et à la couleur de la marque. */
+:focus-visible {
+  outline: 2px solid var(--ark-signal);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* Menu latéral : l'élément actif porte une barre jaune. */
+.menu__link--active:not(.menu__link--sublist) {
+  box-shadow: inset 3px 0 0 var(--ark-signal);
+  font-weight: 400;
+}
+
+/* Sommaire de droite et lien actif de la barre de navigation. */
+.table-of-contents__link--active {
+  color: var(--ark-ink);
+  box-shadow: inset 0 -2px 0 var(--ark-signal);
+}
+
+.navbar__link--active {
+  color: var(--ark-ink);
+  box-shadow: inset 0 -2px 0 var(--ark-signal);
+}
+
+/* Lignes de code mises en avant : liseré jaune. */
+.theme-code-block-highlighted-line {
+  box-shadow: inset 3px 0 0 var(--ark-signal);
+}
+
+/* Surlignage manuel dans le texte : <mark>. */
+mark {
+  background: var(--ark-signal);
+  color: #0d0e10;
+  padding: 0 0.15em;
+  border-radius: 2px;
+}
+
+/* Barre de défilement de la page et curseur des champs. */
+input,
+textarea {
+  caret-color: var(--ark-signal-deep);
 }
