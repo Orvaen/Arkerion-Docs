@@ -21,11 +21,18 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
       - name: Installer les dépendances
         run: npm install --no-audit --no-fund
       - name: Construire le site
-        run: npm run build
+        shell: bash
+        run: |
+          set -o pipefail
+          if ! npm run build 2>&1 | tee build.log; then
+            msg=$(grep -v '^\s*$' build.log | tail -80 | sed 's/%/%25/g' | awk '{printf "%s%%0A", $0}')
+            echo "::error title=Erreur de construction::$msg"
+            exit 1
+          fi
       - uses: actions/upload-pages-artifact@v3
         with:
           path: build
