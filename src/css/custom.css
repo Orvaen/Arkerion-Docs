@@ -1,5 +1,5 @@
-/* Arkerion Docs — thème : polices Arkerion, noir sur blanc, et le Jaune Arkerion
-   comme couleur signature (sélection, soulignements, états actifs, focus). */
+/* Arkerion Docs — thème : polices Arkerion, noir sur blanc, et l'Améthyste
+   comme couleur signature (sélection, liens, états actifs, focus). */
 
 @font-face {
   font-family: 'Arkerion Sans';
@@ -36,21 +36,20 @@
   --ark-mute: #767b85;
   --ark-hair: #e7e8eb;
   --ark-wash: #f6f6f7;
-  --ark-signal: #ffc72c;         /* Jaune Arkerion */
-  --ark-signal-soft: #fff1c2;    /* teinte claire : fonds actifs */
-  --ark-signal-deep: #8a6100;    /* version texte, lisible sur blanc */
+  --ark-signal: #7c4ddb;         /* Améthyste Arkerion */
+  --ark-signal-soft: #efe8fc;    /* teinte claire : fonds actifs, surlignage */
+  --ark-signal-deep: #6a3cc9;    /* survol, texte actif */
 
-  /* L'accent d'interface reste l'encre ; le jaune souligne et surligne. */
-  --ifm-color-primary: #0d0e10;
-  --ifm-color-primary-dark: #000000;
-  --ifm-color-primary-darker: #000000;
-  --ifm-color-primary-darkest: #000000;
-  --ifm-color-primary-light: #2a2c31;
-  --ifm-color-primary-lighter: #43474f;
-  --ifm-color-primary-lightest: #767b85;
-  --ifm-link-color: var(--ark-ink);
-  --ifm-link-hover-color: var(--ark-ink);
-  --ifm-menu-color-active: var(--ark-ink);
+  --ifm-color-primary: #7c4ddb;
+  --ifm-color-primary-dark: #6e3cd6;
+  --ifm-color-primary-darker: #6735d3;
+  --ifm-color-primary-darkest: #5428b5;
+  --ifm-color-primary-light: #8c62df;
+  --ifm-color-primary-lighter: #946de2;
+  --ifm-color-primary-lightest: #ae8fe8;
+  --ifm-link-color: var(--ark-signal);
+  --ifm-link-hover-color: var(--ark-signal-deep);
+  --ifm-menu-color-active: var(--ark-signal-deep);
   --ifm-menu-color-background-active: var(--ark-signal-soft);
   --ifm-font-color-base: var(--ark-ink);
   --ifm-color-content-secondary: var(--ark-soft);
@@ -66,7 +65,7 @@
   --ifm-pre-background: #fbfbfc;
   --ifm-pre-line-height: 1.65;
   --ifm-global-radius: 8px;
-  --docusaurus-highlighted-code-line-bg: rgba(255, 199, 44, 0.22);
+  --docusaurus-highlighted-code-line-bg: rgba(124, 77, 219, 0.1);
 }
 
 [data-theme='dark'] {
@@ -75,25 +74,25 @@
   --ark-mute: #8b919c;
   --ark-hair: #2a2d34;
   --ark-wash: #1b1d22;
-  --ark-signal: #ffc72c;
-  --ark-signal-soft: rgba(255, 199, 44, 0.16);
-  --ark-signal-deep: #ffd666;
+  --ark-signal: #a98bf0;
+  --ark-signal-soft: rgba(169, 139, 240, 0.16);
+  --ark-signal-deep: #c5b0f5;
 
-  --ifm-color-primary: #ffc72c;
-  --ifm-color-primary-dark: #ffbd05;
-  --ifm-color-primary-darker: #f5b400;
-  --ifm-color-primary-darkest: #c99400;
-  --ifm-color-primary-light: #ffd257;
-  --ifm-color-primary-lighter: #ffd76b;
-  --ifm-color-primary-lightest: #ffe7a6;
-  --ifm-link-color: var(--ark-ink);
-  --ifm-link-hover-color: var(--ark-ink);
-  --ifm-menu-color-active: var(--ark-ink);
+  --ifm-color-primary: #a98bf0;
+  --ifm-color-primary-dark: #9672ec;
+  --ifm-color-primary-darker: #8d66ea;
+  --ifm-color-primary-darkest: #6f3fe3;
+  --ifm-color-primary-light: #bca4f4;
+  --ifm-color-primary-lighter: #c5b0f5;
+  --ifm-color-primary-lightest: #e0d4fa;
+  --ifm-link-color: var(--ark-signal);
+  --ifm-link-hover-color: var(--ark-signal-deep);
+  --ifm-menu-color-active: var(--ark-signal-deep);
   --ifm-menu-color-background-active: var(--ark-signal-soft);
   --ifm-background-color: #111215;
   --ifm-background-surface-color: #111215;
   --ifm-pre-background: #17191e;
-  --docusaurus-highlighted-code-line-bg: rgba(255, 199, 44, 0.14);
+  --docusaurus-highlighted-code-line-bg: rgba(169, 139, 240, 0.14);
 }
 
 body {
@@ -173,29 +172,29 @@ pre code {
 }
 
 /* ------------------------------------------------------------------
-   Couleur signature : Jaune Arkerion
+   Couleur signature : Améthyste Arkerion
    ------------------------------------------------------------------ */
 
-/* Sélection de texte : un surligneur jaune, texte toujours en encre. */
+/* Sélection de texte : aplat améthyste, texte blanc. */
 ::selection {
-  background: var(--ark-signal);
-  color: #0d0e10;
+  background: #7c4ddb;
+  color: #ffffff;
 }
 
-/* Liens du contenu : encre, soulignés en jaune. */
-.markdown a,
-.footer a.footer__link-item:hover {
-  color: var(--ark-ink);
-  text-decoration: underline;
-  text-decoration-color: var(--ark-signal);
-  text-decoration-thickness: 2px;
-  text-underline-offset: 3px;
-  transition: background-color 0.15s ease;
+/* Liens du contenu : améthyste, soulignés au survol. */
+.markdown a {
+  color: var(--ark-signal);
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0 1.5px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.2s ease, color 0.15s ease;
 }
 
 .markdown a:hover {
-  background: var(--ark-signal-soft);
-  text-decoration-color: var(--ark-signal);
+  color: var(--ark-signal-deep);
+  background-size: 100% 1.5px;
 }
 
 /* Focus clavier visible et à la couleur de la marque. */
@@ -205,7 +204,7 @@ pre code {
   border-radius: 3px;
 }
 
-/* Menu latéral : l'élément actif porte une barre jaune. */
+/* Menu latéral : l'élément actif porte une barre améthyste. */
 .menu__link--active:not(.menu__link--sublist) {
   box-shadow: inset 3px 0 0 var(--ark-signal);
   font-weight: 400;
@@ -213,8 +212,7 @@ pre code {
 
 /* Sommaire de droite et lien actif de la barre de navigation. */
 .table-of-contents__link--active {
-  color: var(--ark-ink);
-  box-shadow: inset 0 -2px 0 var(--ark-signal);
+  color: var(--ark-signal);
 }
 
 .navbar__link--active {
@@ -222,21 +220,21 @@ pre code {
   box-shadow: inset 0 -2px 0 var(--ark-signal);
 }
 
-/* Lignes de code mises en avant : liseré jaune. */
+/* Lignes de code mises en avant : liseré améthyste. */
 .theme-code-block-highlighted-line {
   box-shadow: inset 3px 0 0 var(--ark-signal);
 }
 
 /* Surlignage manuel dans le texte : <mark>. */
 mark {
-  background: var(--ark-signal);
-  color: #0d0e10;
+  background: var(--ark-signal-soft);
+  color: var(--ark-ink);
   padding: 0 0.15em;
   border-radius: 2px;
 }
 
-/* Barre de défilement de la page et curseur des champs. */
+/* Curseur des champs de saisie. */
 input,
 textarea {
-  caret-color: var(--ark-signal-deep);
+  caret-color: var(--ark-signal);
 }

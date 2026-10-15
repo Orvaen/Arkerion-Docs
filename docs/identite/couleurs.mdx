@@ -1,14 +1,14 @@
 ---
 sidebar_position: 2
 title: Couleurs
-description: La palette Arkerion, noir, blanc et le Jaune Arkerion.
+description: La palette Arkerion, noir, blanc et l'Améthyste Arkerion.
 ---
 
 import { ColorGrid } from '@site/src/components/Brand';
 
 # Couleurs
 
-L'identité repose sur le noir et le blanc. Les gris servent à la hiérarchie de l'interface. Une seule couleur vient les ponctuer : le <mark>Jaune Arkerion</mark>, la couleur signature de la marque.
+L'identité repose sur le noir et le blanc. Les gris servent à la hiérarchie de l'interface. Une seule couleur vient les ponctuer : l'<mark>Améthyste Arkerion</mark>, la couleur signature de la marque.
 
 ## Palette
 
@@ -19,41 +19,41 @@ L'identité repose sur le noir et le blanc. Les gris servent à la hiérarchie d
     { name: 'Texte secondaire', hex: '#43474F', role: 'paragraphes' },
     { name: 'Légendes', hex: '#767B85', role: 'métadonnées' },
     { name: 'Filets', hex: '#E7E8EB', role: 'bordures, séparateurs' },
-    { name: 'Jaune Arkerion', hex: '#FFC72C', role: 'sélection, soulignés, états actifs' },
-    { name: 'Jaune clair', hex: '#FFF1C2', role: 'fonds actifs, survol' },
-    { name: 'Jaune texte', hex: '#8A6100', role: 'jaune en texte sur fond blanc' },
+    { name: 'Améthyste Arkerion', hex: '#7C4DDB', role: 'sélection, liens, états actifs' },
+    { name: 'Améthyste claire', hex: '#EFE8FC', role: 'fonds actifs, surlignage' },
+    { name: 'Améthyste sombre', hex: '#A98BF0', role: 'version pour fond sombre' },
   ]}
 />
 
 ## Proportions
 
-Sur un support type, le blanc domine, le noir porte le texte et le logo, les gris structurent, et le jaune reste ponctuel.
+Sur un support type, le blanc domine, le noir porte le texte et le logo, les gris structurent, et l'améthyste reste ponctuelle.
 
 | Couleur | Part indicative |
 |---|---|
 | Papier | 46 % |
 | Encre | 34 % |
 | Gris | 16 % |
-| Jaune Arkerion | 4 % |
+| Améthyste Arkerion | 4 % |
 
-## Le Jaune Arkerion
+## L'Améthyste Arkerion
 
-Le jaune agit comme un surligneur posé sur une page noir et blanc. Sélectionnez une phrase de cette page : c'est la couleur de sélection de tout le site.
+L'améthyste ponctue une page noir et blanc. Sélectionnez une phrase de cette page : c'est la couleur de sélection de tout le site.
 
 | Usage | Règle |
 |---|---|
-| Sélection de texte | fond jaune, texte en encre |
-| Liens | texte en encre, soulignement jaune de 2 px |
-| Élément actif (menu, sommaire, navigation) | barre ou soulignement jaune |
-| Focus clavier | contour jaune de 2 px |
-| Lignes de code mises en avant | fond jaune très léger et liseré jaune |
+| Sélection de texte | aplat améthyste, texte blanc |
+| Liens | texte améthyste, souligné au survol |
+| Élément actif (menu, sommaire, navigation) | barre ou soulignement améthyste |
+| Focus clavier | contour améthyste de 2 px |
+| Lignes de code mises en avant | fond améthyste très léger et liseré |
 
 :::tip
-Le jaune ne s'écrit jamais en texte sur fond blanc : son contraste est trop faible. Pour un texte jaune sur blanc, utilisez le Jaune texte `#8A6100`. Sur fond noir, le Jaune Arkerion s'utilise tel quel.
+L'Améthyste `#7C4DDB` s'utilise en texte sur fond blanc (contraste de 5,3:1). Sur fond sombre, utilisez sa version claire `#A98BF0`.
 :::
 
 :::warning
-Le jaune ne sert jamais de grand aplat de fond, et il ne colore jamais le logo, qui reste noir ou blanc.
+L'améthyste ne sert jamais de grand aplat de fond, et elle ne colore jamais le logo, qui reste noir ou blanc.
 :::
 
 ## Variables CSS
@@ -65,13 +65,13 @@ Le jaune ne sert jamais de grand aplat de fond, et il ne colore jamais le logo, 
   --ark-soft: #43474f;
   --ark-mute: #767b85;
   --ark-hair: #e7e8eb;
-  --ark-signal: #ffc72c;      /* Jaune Arkerion */
-  --ark-signal-soft: #fff1c2;
-  --ark-signal-deep: #8a6100;
+  --ark-signal: #7c4ddb;      /* Améthyste Arkerion */
+  --ark-signal-soft: #efe8fc;
+  --ark-signal-dark: #a98bf0; /* sur fond sombre */
 }
 
 ::selection {
   background: var(--ark-signal);
-  color: var(--ark-ink);
+  color: #ffffff;
 }
 ```
