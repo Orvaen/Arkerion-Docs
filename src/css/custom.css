@@ -175,10 +175,18 @@ pre code {
    Couleur signature : Améthyste Arkerion
    ------------------------------------------------------------------ */
 
-/* Sélection de texte : aplat améthyste, texte blanc. */
+/* Sélection de texte : voile améthyste translucide, le texte garde sa couleur
+   (y compris la coloration du code). */
 ::selection {
-  background: #6e569f;
-  color: #ffffff;
+  background: rgba(122, 98, 184, 0.36);
+  background: color-mix(in lch, #7a62b8, transparent 64%);
+  color: currentColor;
+}
+
+[data-theme='dark'] ::selection {
+  background: rgba(157, 138, 214, 0.36);
+  background: color-mix(in lch, #9d8ad6, transparent 64%);
+  color: currentColor;
 }
 
 /* Liens du contenu : améthyste, soulignés au survol. */

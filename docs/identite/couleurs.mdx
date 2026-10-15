@@ -42,7 +42,7 @@ L'améthyste ponctue une page noir et blanc. Sélectionnez une phrase de cette p
 
 | Usage | Règle |
 |---|---|
-| Sélection de texte | aplat améthyste, texte blanc |
+| Sélection de texte | voile améthyste translucide, le texte garde sa couleur |
 | Liens | texte améthyste, souligné au survol |
 | Élément actif (menu, sommaire, navigation) | barre ou soulignement améthyste |
 | Focus clavier | contour améthyste de 2 px |
@@ -71,7 +71,7 @@ L'améthyste ne sert jamais de grand aplat de fond, et elle ne colore jamais le 
 }
 
 ::selection {
-  background: var(--ark-signal);
-  color: #ffffff;
+  background: color-mix(in lch, #7a62b8, transparent 64%);
+  color: currentColor;
 }
 ```
