@@ -1,0 +1,42 @@
+---
+sidebar_position: 1
+title: Introduction
+description: La documentation d'Arkerion, entreprise de développement web et logiciel.
+---
+
+import { Lockup } from '@site/src/components/Brand';
+
+# Introduction
+
+Bienvenue dans la documentation d'Arkerion. Elle rassemble l'identité de la marque, nos polices, nos produits et les guides pour contribuer.
+
+<div style={{ margin: '2rem 0' }}>
+  <Lockup size={44} />
+</div>
+
+Arkerion est une entreprise de développement web et logiciel. Ce site est lui-même construit avec nos outils : il est composé en **Arkerion Sans** et ses extraits de code en **Arkerion Mono**.
+
+## Ce que vous trouverez ici
+
+| Section | Contenu |
+|---|---|
+| [Identité](./identite/logo) | Logo, couleurs, typographie et règles d'usage |
+| [Polices](./identite/polices) | Installer et utiliser Arkerion Sans et Arkerion Mono |
+| [Nebula](./produits/nebula) | Le logiciel développé par Arkerion |
+| [Contribuer](./contribuer/rediger) | Rédiger une page et faire tourner le site en local |
+
+## Un aperçu du code
+
+Les blocs de code utilisent Arkerion Mono. Les ligatures transforment les suites de signes courantes en un seul symbole, sans changer le texte réel ni l'alignement :
+
+```ts title="exemple.ts"
+const isValid = (port: number) => port >= 1024 && port <= 65535;
+
+if (process.env.NODE_ENV !== "production") {
+  console.log(`Port valide : ${isValid(8080)}`);
+}
+```
+
+:::info Version d'étude
+Les polices Arkerion sont en cours de développement (version 0.1). Leur statut est détaillé sur la page [Polices](./identite/polices).
+:::

@@ -1,0 +1,56 @@
+---
+sidebar_position: 3
+title: Typographie
+description: Arkerion Sans et Arkerion Mono, leurs rôles et leur hiérarchie.
+---
+
+import { Specimen, TypeScale, Ligatures } from '@site/src/components/Brand';
+
+# Typographie
+
+Arkerion utilise deux polices maison : **Arkerion Sans** pour l'interface, la documentation et le logo, et **Arkerion Mono** pour le code.
+
+## Arkerion Sans
+
+Une grotesque d'interface : grande hauteur d'x, rondes tendues, ouvertures franches, dessinée pour rester nette à l'écran.
+
+<Specimen
+  big="Aa Kk Rr"
+  lines={[
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+    'abcdefghijklmnopqrstuvwxyz',
+    '0123456789 éèêëàâçùûôîï !?&@#%$',
+  ]}
+  caption={['Arkerion Sans Regular', 'Medium, Semibold et Bold à venir']}
+/>
+
+### Hiérarchie
+
+<TypeScale
+  steps={[
+    { label: 'Titre 1 / 48 / 1.05', size: 48, lh: 1.05, text: 'Déployer en confiance' },
+    { label: 'Titre 2 / 32 / 1.15', size: 32, lh: 1.15, text: 'Configuration du projet' },
+    { label: 'Titre 3 / 20 / 1.3', size: 20, lh: 1.3, text: "Variables d'environnement" },
+    { label: 'Texte / 16 / 1.65', size: 16, lh: 1.65, text: 'Chaque projet est décrit par un fichier de configuration.' },
+    { label: 'Légende / 13 / 1.5', size: 13, lh: 1.5, text: 'Dernière mise à jour le 15 octobre 2026' },
+  ]}
+/>
+
+Le nom Arkerion se compose avec un interlettrage resserré de -2,5 % ; le texte courant garde l'espacement par défaut de la police.
+
+## Arkerion Mono
+
+Police à chasse fixe pour le code, les terminaux et les données. Le zéro est pointé, les lettres i, l et le chiffre 1 sont bien distincts, et la ponctuation est renforcée.
+
+<Specimen
+  mono
+  big="0Oo il1"
+  lines={['{ } [ ] ( ) ; : , . " \' ` * & | ~ ^ $ # @ %', 'const total = items.length * 2;']}
+  caption={['Arkerion Mono Regular', '600 unités par caractère']}
+/>
+
+### Ligatures de code
+
+Les ligatures sont activées par défaut. Elles ne modifient que l'affichage : le fichier contient toujours les caractères tapés, et chaque ligature occupe exactement la largeur des signes qu'elle remplace.
+
+<Ligatures />

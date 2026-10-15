@@ -1,0 +1,56 @@
+---
+sidebar_position: 1
+title: Logo
+description: Le symbole Structure, ses versions et ses règles d'usage.
+---
+
+import { LogoGrid, Lockup } from '@site/src/components/Brand';
+
+# Logo
+
+Le logo d'Arkerion associe le symbole **Structure** et le nom Arkerion composé en Arkerion Sans.
+
+## Le symbole Structure
+
+Le symbole réunit une équerre et un bloc emboîté dans son angle. L'équerre évoque la construction et la rigueur ; le bloc, le module de code qui vient s'y loger. Les angles sont arrondis pour garder une forme sobre et accessible.
+
+<div style={{ margin: '2rem 0', padding: '2.5rem', border: '1px solid var(--ark-hair)', borderRadius: 12, display: 'grid', placeItems: 'center' }}>
+  <Lockup size={56} />
+</div>
+
+## Versions
+
+Chaque version existe en noir, pour les fonds clairs, et en blanc, pour les fonds sombres.
+
+<LogoGrid />
+
+Les fichiers SVG se trouvent dans [`static/img/logo`](https://github.com/rayan-studio/Arkerion-Docs/tree/main/static/img/logo). Le nom y est vectorisé : il s'affiche correctement même sans la police installée.
+
+| Fichier | Usage |
+|---|---|
+| `arkerion-logo-noir.svg`, `arkerion-logo-blanc.svg` | Logo complet, usage principal |
+| `arkerion-symbole-noir.svg`, `arkerion-symbole-blanc.svg` | Icône d'application, avatar, favicon |
+| `arkerion-nom-noir.svg`, `arkerion-nom-blanc.svg` | Nom seul |
+
+## Zone de protection
+
+Laissez autour du logo un espace libre égal à la moitié de la hauteur du symbole. Aucun texte ni élément graphique ne doit entrer dans cette zone.
+
+## Tailles minimales
+
+| Version | Écran | Impression |
+|---|---|---|
+| Logo complet | 96 px de large | 25 mm de large |
+| Symbole seul | 16 px | 5 mm |
+| Nom seul | 14 px de corps | 8 pt |
+
+## À ne pas faire
+
+:::danger Interdit
+- Déformer le logo : l'étirer ou l'écraser.
+- Le recolorer : il existe uniquement en noir et en blanc.
+- Lui ajouter des effets : ombre, dégradé ou contour.
+- Pivoter le symbole : l'équerre reste en haut à gauche.
+- Recomposer le nom dans une autre police qu'Arkerion Sans.
+- Le poser sur un fond sans contraste suffisant (4,5:1 au minimum).
+:::

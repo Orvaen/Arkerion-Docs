@@ -1,0 +1,159 @@
+/* Arkerion Docs — thème : polices Arkerion, noir sur blanc, un accent bleu. */
+
+@font-face {
+  font-family: 'Arkerion Sans';
+  src: url('../fonts/ArkerionSans-Regular.ttf') format('truetype');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Arkerion Mono';
+  src: url('../fonts/ArkerionMono-Regular.ttf') format('truetype');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --ifm-font-family-base: 'Arkerion Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --ifm-font-family-monospace: 'Arkerion Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --ifm-heading-font-family: 'Arkerion Sans', system-ui, sans-serif;
+  --ifm-font-size-base: 16px;
+  --ifm-line-height-base: 1.65;
+  --ifm-heading-font-weight: 400;
+  --ifm-font-weight-bold: 400;
+  --ifm-font-weight-semibold: 400;
+  --ifm-code-font-size: 88%;
+  --ifm-h1-font-size: 2.6rem;
+  --ifm-h2-font-size: 1.75rem;
+  --ifm-h3-font-size: 1.25rem;
+
+  --ark-ink: #0d0e10;
+  --ark-soft: #43474f;
+  --ark-mute: #767b85;
+  --ark-hair: #e7e8eb;
+  --ark-wash: #f6f6f7;
+  --ark-blue: #1f4fd1;
+
+  --ifm-color-primary: #1f4fd1;
+  --ifm-color-primary-dark: #1c47bc;
+  --ifm-color-primary-darker: #1a43b2;
+  --ifm-color-primary-darkest: #163792;
+  --ifm-color-primary-light: #3462dc;
+  --ifm-color-primary-lighter: #3f6bde;
+  --ifm-color-primary-lightest: #6087e4;
+  --ifm-font-color-base: var(--ark-ink);
+  --ifm-color-content-secondary: var(--ark-soft);
+  --ifm-background-color: #ffffff;
+  --ifm-toc-border-color: var(--ark-hair);
+  --ifm-color-emphasis-200: var(--ark-hair);
+  --ifm-hr-border-color: var(--ark-hair);
+  --ifm-navbar-shadow: none;
+  --ifm-navbar-height: 3.75rem;
+  --ifm-code-background: var(--ark-wash);
+  --ifm-code-border-radius: 5px;
+  --ifm-code-padding-horizontal: 0.36em;
+  --ifm-pre-background: #fbfbfc;
+  --ifm-pre-line-height: 1.65;
+  --ifm-global-radius: 8px;
+  --docusaurus-highlighted-code-line-bg: rgba(31, 79, 209, 0.08);
+}
+
+[data-theme='dark'] {
+  --ark-ink: #eceef2;
+  --ark-soft: #b6bbc4;
+  --ark-mute: #8b919c;
+  --ark-hair: #2a2d34;
+  --ark-wash: #1b1d22;
+  --ark-blue: #7ea2ff;
+
+  --ifm-color-primary: #7ea2ff;
+  --ifm-color-primary-dark: #5f8bff;
+  --ifm-color-primary-darker: #4f80ff;
+  --ifm-color-primary-darkest: #2063ff;
+  --ifm-color-primary-light: #9db9ff;
+  --ifm-color-primary-lighter: #adc4ff;
+  --ifm-color-primary-lightest: #dbe5ff;
+  --ifm-background-color: #111215;
+  --ifm-background-surface-color: #111215;
+  --ifm-pre-background: #17191e;
+  --docusaurus-highlighted-code-line-bg: rgba(126, 162, 255, 0.12);
+}
+
+body {
+  font-kerning: normal;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Le nom Arkerion se compose resserré, comme dans le logo. */
+.navbar__title {
+  font-size: 1.35rem;
+  letter-spacing: -0.025em;
+  font-weight: 400;
+}
+
+.navbar {
+  border-bottom: 1px solid var(--ark-hair);
+}
+
+.navbar__link {
+  font-size: 0.95rem;
+}
+
+/* Code : ligatures Arkerion Mono activées. */
+code,
+pre,
+kbd {
+  font-feature-settings: 'calt' 1;
+  font-variant-ligatures: contextual;
+}
+
+code {
+  border: 1px solid var(--ark-hair);
+  vertical-align: baseline;
+}
+
+pre code {
+  border: 0;
+}
+
+.theme-code-block {
+  border: 1px solid var(--ark-hair);
+  box-shadow: none;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3 {
+  letter-spacing: -0.005em;
+}
+
+.markdown > p,
+.markdown li {
+  color: var(--ark-soft);
+}
+
+.markdown > p:first-of-type {
+  font-size: 1.15rem;
+  color: var(--ark-ink);
+}
+
+.table-of-contents {
+  font-size: 0.85rem;
+}
+
+.menu__link {
+  font-size: 0.95rem;
+}
+
+.alert {
+  border-left-width: 0;
+  box-shadow: none;
+}
+
+.footer--light {
+  background: var(--ifm-background-color);
+  border-top: 1px solid var(--ark-hair);
+}

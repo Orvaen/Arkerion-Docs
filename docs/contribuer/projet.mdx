@@ -1,0 +1,80 @@
+---
+sidebar_position: 2
+title: Faire tourner le site
+description: Lancer la documentation en local, la construire et la publier.
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Faire tourner le site
+
+La documentation est un site [Docusaurus](https://docusaurus.io) : les pages sont écrites en MDX et le site est généré en HTML statique.
+
+## Prérequis
+
+Node.js 18 ou plus récent.
+
+## En local
+
+<Tabs groupId="pm">
+  <TabItem value="npm" label="npm" default>
+
+```bash
+npm install
+npm start
+```
+
+  </TabItem>
+  <TabItem value="pnpm" label="pnpm">
+
+```bash
+pnpm install
+pnpm start
+```
+
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+
+```bash
+yarn
+yarn start
+```
+
+  </TabItem>
+</Tabs>
+
+Le site s'ouvre sur `http://localhost:3000/Arkerion-Docs/` et se recharge à chaque modification.
+
+## Construire
+
+```bash
+npm run build    # génère le site dans build/
+npm run serve    # sert la version construite
+```
+
+## Publier
+
+Chaque push sur la branche `main` construit le site et le publie sur GitHub Pages, grâce au workflow `.github/workflows/deploy.yml`.
+
+:::note Première mise en place
+Dans les réglages du dépôt, ouvrez **Settings**, **Pages**, et choisissez **GitHub Actions** comme source. Le site est ensuite servi à l'adresse `https://rayan-studio.github.io/Arkerion-Docs/`.
+:::
+
+## Structure du dépôt
+
+```text
+docs/                 pages MDX
+src/
+  components/         composants React (logo, couleurs, spécimens)
+  css/custom.css      thème : polices et couleurs Arkerion
+  fonts/              polices utilisées par le site
+  pages/index.js      page d'accueil
+static/
+  fonts/              polices à télécharger (TTF, OTF)
+  img/logo/           logos SVG
+  ide/                page de test en IDE
+sources/              générateur Python des polices
+docusaurus.config.js  configuration du site
+sidebars.js           menu de la documentation
+```

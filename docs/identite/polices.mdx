@@ -1,0 +1,90 @@
+---
+sidebar_position: 4
+title: Polices
+description: Installer et utiliser Arkerion Sans et Arkerion Mono.
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Polices
+
+Les fichiers des polices se trouvent dans [`static/fonts`](https://github.com/rayan-studio/Arkerion-Docs/tree/main/static/fonts), aux formats TTF et OTF.
+
+| Fichier | Police |
+|---|---|
+| `ArkerionSans-Regular.ttf` / `.otf` | Arkerion Sans Regular |
+| `ArkerionMono-Regular.ttf` / `.otf` | Arkerion Mono Regular |
+| `etudes/ArkerionSans-Clarte.ttf` | Variante d'étude Clarté |
+| `etudes/ArkerionSans-Nuance.ttf` | Variante d'étude Nuance |
+
+## Sur un site web
+
+Copiez les fichiers TTF dans votre projet, puis déclarez les polices en CSS :
+
+```css title="fonts.css"
+@font-face {
+  font-family: "Arkerion Sans";
+  src: url("./fonts/ArkerionSans-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Arkerion Mono";
+  src: url("./fonts/ArkerionMono-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+body {
+  font-family: "Arkerion Sans", system-ui, sans-serif;
+}
+
+code, pre {
+  font-family: "Arkerion Mono", ui-monospace, monospace;
+  font-feature-settings: "calt" 1; /* ligatures de code */
+}
+```
+
+## Dans un éditeur de code
+
+<Tabs groupId="editeur">
+  <TabItem value="vscode" label="VS Code" default>
+
+Installez `ArkerionMono-Regular.ttf` sur votre système, puis ajoutez dans `settings.json` :
+
+```json title="settings.json"
+{
+  "editor.fontFamily": "'Arkerion Mono', monospace",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 14,
+  "editor.lineHeight": 1.6
+}
+```
+
+  </TabItem>
+  <TabItem value="jetbrains" label="IDE JetBrains">
+
+Installez `ArkerionMono-Regular.ttf`, puis ouvrez **Settings**, **Editor**, **Font** : choisissez *Arkerion Mono* et cochez **Enable ligatures**.
+
+  </TabItem>
+  <TabItem value="terminal" label="Terminal">
+
+Dans la plupart des terminaux, choisissez *Arkerion Mono* dans les préférences de police. Les ligatures dépendent du terminal : elles fonctionnent par exemple dans Kitty, WezTerm et iTerm2.
+
+  </TabItem>
+</Tabs>
+
+## Tester sur du code
+
+La page [Test IDE](https://rayan-studio.github.io/Arkerion-Docs/ide/) reproduit un éditeur où vous pouvez taper du code et comparer Arkerion Mono avec JetBrains Mono.
+
+## Statut
+
+:::caution Version d'étude 0.1
+Les polices sont générées par paramètres à partir des sources du dossier `sources/`. Avant un usage en production :
+
+1. reprendre les dessins dans un éditeur de polices (FontLab, Glyphs) et fusionner les contours qui se chevauchent ;
+2. ajouter le hinting pour la netteté à petite taille sous Windows ;
+3. compléter le jeu de caractères : guillemets français, tiret long, points de suspension, ligatures des lettres o et e ;
+4. dessiner les graisses Medium, Semibold et Bold, puis exporter en WOFF2.
+:::

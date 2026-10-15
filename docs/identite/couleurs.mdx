@@ -1,0 +1,52 @@
+---
+sidebar_position: 2
+title: Couleurs
+description: La palette Arkerion, noir, blanc et un seul accent.
+---
+
+import { ColorGrid } from '@site/src/components/Brand';
+
+# Couleurs
+
+L'identité repose sur le noir et le blanc. Les gris servent à la hiérarchie de l'interface ; le bleu est réservé aux liens, aux états actifs et au focus.
+
+## Palette
+
+<ColorGrid
+  colors={[
+    { name: 'Encre', hex: '#0D0E10', role: 'texte, logo' },
+    { name: 'Papier', hex: '#FFFFFF', role: 'fonds' },
+    { name: 'Texte secondaire', hex: '#43474F', role: 'paragraphes' },
+    { name: 'Légendes', hex: '#767B85', role: 'métadonnées' },
+    { name: 'Filets', hex: '#E7E8EB', role: 'bordures, séparateurs' },
+    { name: 'Bleu Arkerion', hex: '#1F4FD1', role: 'liens, focus' },
+  ]}
+/>
+
+## Proportions
+
+Sur un support type, le blanc domine, le noir porte le texte et le logo, les gris structurent, et le bleu reste ponctuel.
+
+| Couleur | Part indicative |
+|---|---|
+| Papier | 46 % |
+| Encre | 34 % |
+| Gris | 16 % |
+| Bleu Arkerion | 4 % |
+
+:::tip
+Le bleu ne sert jamais de fond de grande surface. Pour mettre un élément en avant, préférez le contraste noir sur blanc.
+:::
+
+## Variables CSS
+
+```css title="couleurs.css"
+:root {
+  --ark-ink: #0d0e10;
+  --ark-paper: #ffffff;
+  --ark-soft: #43474f;
+  --ark-mute: #767b85;
+  --ark-hair: #e7e8eb;
+  --ark-blue: #1f4fd1;
+}
+```

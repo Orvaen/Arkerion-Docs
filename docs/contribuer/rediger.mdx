@@ -1,0 +1,92 @@
+---
+sidebar_position: 1
+title: Rédiger une page
+description: Écrire une page de la documentation Arkerion en MDX.
+---
+
+import { Lockup } from '@site/src/components/Brand';
+
+# Rédiger une page
+
+Chaque page de la documentation est un fichier `.mdx` du dossier `docs/`. Le MDX, c'est du Markdown dans lequel on peut aussi utiliser des composants React.
+
+## Créer une page
+
+Ajoutez un fichier dans `docs/`, par exemple `docs/guides/deploiement.mdx`, avec un en-tête :
+
+```mdx title="docs/guides/deploiement.mdx"
+---
+title: Déploiement
+description: Déployer un projet en production.
+sidebar_position: 2
+---
+
+# Déploiement
+
+Premier paragraphe de la page.
+```
+
+Puis référencez la page dans `sidebars.js` pour qu'elle apparaisse dans le menu.
+
+## Blocs de code
+
+Indiquez le langage et, si utile, un titre. Les lignes peuvent être mises en évidence :
+
+````mdx
+```ts title="server.ts" {2}
+const port = Number(process.env.PORT ?? 8080);
+server.listen(port, () => console.log(`Prêt sur ${port}`));
+```
+````
+
+Résultat :
+
+```ts title="server.ts" {2}
+const port = Number(process.env.PORT ?? 8080);
+server.listen(port, () => console.log(`Prêt sur ${port}`));
+```
+
+## Encadrés
+
+```mdx
+:::tip Astuce
+Un conseil utile.
+:::
+```
+
+Les types disponibles sont `note`, `tip`, `info`, `caution` et `danger`.
+
+:::tip Astuce
+Un conseil utile.
+:::
+
+## Composants Arkerion
+
+Les composants du dossier `src/components/` s'importent en haut de la page :
+
+```mdx
+import { Lockup } from '@site/src/components/Brand';
+
+<Lockup size={40} />
+```
+
+<div style={{ margin: '1.5rem 0' }}>
+  <Lockup size={40} />
+</div>
+
+| Composant | Rôle |
+|---|---|
+| `Lockup` | Logo complet, symbole et nom |
+| `Mark` | Symbole Structure seul |
+| `LogoGrid` | Les trois versions du logo, en noir et en blanc |
+| `ColorGrid` | Nuancier de couleurs |
+| `Specimen` | Spécimen de police |
+| `TypeScale` | Échelle typographique |
+| `Ligatures` | Tableau des ligatures de code |
+
+## Règles de rédaction
+
+- Écrivez des phrases courtes, à la voix active.
+- Nommez les choses comme l'utilisateur les voit à l'écran.
+- Mettez les commandes, chemins et noms de variables en code : `npm run build`, `docs/`, `PORT`.
+- Utilisez les apostrophes droites (') : les apostrophes typographiques ne sont pas encore dessinées dans Arkerion Sans.
