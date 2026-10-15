@@ -38,8 +38,11 @@ src/
   pages/index.js      page d'accueil
 static/
   fonts/              Arkerion Sans et Arkerion Mono à télécharger (TTF, OTF)
+    v2/               Arkerion Sans v2 (lettres du nom Arkerion)
+  v2/comparaison.html page de comparaison v1 / v2
   img/logo/           logos SVG noir et blanc
 sources/              générateur Python des polices (fontTools)
+  arkerion-sans-v2/   sources UFO v1 et v2, scripts et rapport de la v2
 ```
 
 ## Polices

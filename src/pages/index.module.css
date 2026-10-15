@@ -24,9 +24,10 @@
 }
 
 .word {
+  font-family: var(--ark-wordmark);
   font-size: clamp(48px, 8vw, 84px);
   font-weight: 400;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.01em;
   line-height: 1;
   margin: 0;
 }

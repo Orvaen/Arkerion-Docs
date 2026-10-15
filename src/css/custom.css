@@ -9,6 +9,15 @@
   font-display: swap;
 }
 
+/* Nom « Arkerion » : dessin v2 (14 glyphes de l'étude, crénage compris). */
+@font-face {
+  font-family: 'Arkerion Wordmark';
+  src: url('../fonts/ArkerionSans-Wordmark-v2.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @font-face {
   font-family: 'Arkerion Mono';
   src: url('../fonts/ArkerionMono-Regular.ttf') format('truetype');
@@ -19,6 +28,7 @@
 
 :root {
   --ifm-font-family-base: 'Arkerion Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --ark-wordmark: 'Arkerion Wordmark', 'Arkerion Sans', system-ui, sans-serif;
   --ifm-font-family-monospace: 'Arkerion Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
   --ifm-heading-font-family: 'Arkerion Sans', system-ui, sans-serif;
   --ifm-font-size-base: 16px;
@@ -102,8 +112,10 @@ body {
 
 /* Le nom Arkerion se compose resserré, comme dans le logo. */
 .navbar__title {
+  font-family: var(--ark-wordmark);
+  font-feature-settings: 'kern' 1;
   font-size: 1.35rem;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.01em;
   font-weight: 400;
 }
 

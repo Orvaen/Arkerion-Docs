@@ -1,0 +1,18 @@
+languagesystem DFLT dflt;
+languagesystem latn dflt;
+# crénage : voir kerning.plist
+#feature kern {
+  pos A R -7;
+  pos A e -11;
+  pos A o -11;
+  pos E R -7;
+  pos K E -7;
+  pos R I -8;
+  pos R K -8;
+  pos k a -7;
+  pos k e -12;
+  pos k o -12;
+  pos r a -10;
+  pos r e -9;
+  pos r o -9;
+} kern;

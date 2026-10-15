@@ -8,7 +8,7 @@ const sidebars = {
       type: 'category',
       label: 'Identité',
       collapsed: false,
-      items: ['identite/logo', 'identite/couleurs', 'identite/typographie', 'identite/polices'],
+      items: ['identite/logo', 'identite/couleurs', 'identite/typographie', 'identite/arkerion-sans-v2', 'identite/polices'],
     },
     {
       type: 'category',

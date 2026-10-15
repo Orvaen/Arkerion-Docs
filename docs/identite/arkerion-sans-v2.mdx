@@ -1,0 +1,62 @@
+---
+sidebar_position: 4
+title: Arkerion Sans v2
+description: Refonte des lettres du nom Arkerion, du dessin aux contours, et comparaison avec la v1.
+---
+
+# Arkerion Sans v2
+
+La v2 redessine les quatorze lettres du nom Arkerion (`A R K E I O N` et `a r k e i o n`). C'est elle qui compose désormais le nom Arkerion sur ce site : dans la barre de navigation, sur la page d'accueil et dans le logo.
+
+<div style={{ display: 'grid', gap: '0.5rem', padding: '2rem 1.5rem', border: '1px solid var(--ark-hair)', borderRadius: 12, margin: '1.5rem 0' }}>
+  <span style={{ fontFamily: 'var(--ark-wordmark)', fontSize: 'clamp(56px, 10vw, 112px)', lineHeight: 1, letterSpacing: '-0.01em' }}>Arkerion</span>
+  <span style={{ fontFamily: 'var(--ark-wordmark)', fontSize: 'clamp(28px, 5vw, 48px)', lineHeight: 1.1 }}>ARKERION</span>
+</div>
+
+[Ouvrir la page de comparaison v1 / v2](https://rayan-studio.github.io/Arkerion-Docs/v2/comparaison.html) pour voir chaque glyphe avant et après, le nom de 12 à 110 px et les lignes de métrique. Vous pouvez y changer le texte, la taille, le poids visuel et l'espacement.
+
+## Ce qui change
+
+| Glyphe | v2 |
+|---|---|
+| A | plus large et mieux assis : sommet plat aligné sur la hauteur des capitales, jambage gauche délié, droit appuyé, barre abaissée |
+| R | jambe issue de la panse, raide, qui s'évase vers le pied |
+| K, k | jambe greffée sur le bras, bras affiné à la jonction avec le fût |
+| r | oreille plus courte, terminaison perpendiculaire au trait et légèrement bombée |
+| e | terminaison inférieure adoucie, ouverture agrandie |
+| n | épaule qui naît du fût sous son sommet, arche plus fluide |
+| o, O | construction conservée, épaisseurs rééquilibrées |
+
+La hauteur d'x passe de **500 à 520**. Les minuscules gagnent en lisibilité aux petites tailles.
+
+## Qualité des contours
+
+| Contrôle | v1 | v2 |
+|---|---|---|
+| Contours superposés | 23 | 0 |
+| Auto-intersections | 0 | 0 |
+| Extremums manquants | 0 | 0 |
+| Approches négatives | 3 | 0 |
+| Paires de crénage | 0 | 13 |
+
+Chaque glyphe est une seule silhouette, avec ses contre-formes. Les droites tombent exactement sur 0, 520, 700 et 735, et les rondes dépassent de 10 en minuscule et de 12 en capitale.
+
+| Mesure | Capitales | Minuscules |
+|---|---|---|
+| Fût | 86 | 80 |
+| Délié horizontal | 74 | 68 |
+| Flanc des rondes | 1,08 × fût | 1,08 × fût |
+
+## Fichiers
+
+| Fichier | Contenu |
+|---|---|
+| `static/fonts/v2/ArkerionSans-Regular-v2.otf` / `.ttf` | police v2 |
+| `sources/arkerion-sans-v2/ufo/ArkerionSans-Regular-v2.ufo` | sources éditables de la v2 |
+| `sources/arkerion-sans-v2/ufo/ArkerionSans-Regular-v1.ufo` | contours de la v1, conservés |
+| `sources/arkerion-sans-v2/source/` | copie intacte de la v1 |
+| `sources/arkerion-sans-v2/RAPPORT.md` | rapport complet des modifications |
+
+:::info Statut
+La v2 ne couvre que les lettres du nom Arkerion. Le texte du site reste composé en Arkerion Sans, en attendant que l'alphabet complet soit redessiné selon les mêmes principes. La v2 n'est pas encore hintée.
+:::

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Arkerion Sans v1 / v2</title>
+<style>
+/* Banc d'épreuve typographique : réglages en haut, épreuve vectorielle avec
+   lignes de métrique, cascade de tailles, établi de glyphes, tableau de mesures. */
+:root{
+  --paper:#ffffff; --ink:#0d0e10; --soft:#43474f; --mute:#767b85; --hair:#e4e5e9; --wash:#f6f6f7;
+  --v1:#b23a3a; --v2:#0d0e10; --metric:#6e569f; --metric-soft:rgba(110,86,159,.14);
+  --ui:system-ui, -apple-system, "Segoe UI", sans-serif; --mono:ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme:light;
+}
+@font-face{font-family:'ArkV1';src:url(data:font/otf;base64,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) format('opentype')}
+@font-face{font-family:'ArkV2';src:url(data:font/otf;base64,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) format('opentype')}
+*{box-sizing:border-box}
+html,body{background:var(--paper);color:var(--ink)}
+body{margin:0;font:14px/1.5 var(--ui);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 72px}
+.wrap{max-width:1240px;margin:0 auto;display:grid;gap:36px}
+header{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:12px}
+h1{margin:0;font:400 34px/1.1 'ArkV2', var(--ui);letter-spacing:-.01em}
+h2{margin:0 0 12px;font:600 12px/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+.sub{color:var(--mute);font-size:13px}
+.legend{display:flex;gap:16px;font:12px var(--mono);color:var(--soft)}
+.legend i{display:inline-block;width:14px;height:3px;vertical-align:middle;margin-right:6px}
+.controls{position:sticky;top:env(safe-area-inset-top,0px);z-index:3;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);
+  display:flex;flex-wrap:wrap;gap:12px 22px;align-items:center;padding-block:12px;border-block:1px solid var(--hair)}
+.controls label{display:flex;align-items:center;gap:8px;font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+.controls output{font:12px var(--mono);color:var(--ink);min-width:4.5em;text-transform:none;letter-spacing:0}
+input[type=text]{font:15px var(--ui);padding:6px 9px;border:1px solid var(--hair);border-radius:6px;width:min(260px,70vw);color:var(--ink)}
+input[type=range]{width:120px;accent-color:var(--metric)}
+input[type=checkbox]{accent-color:var(--metric)}
+:focus-visible{outline:2px solid var(--metric);outline-offset:2px}
+.panel{border:1px solid var(--hair);border-radius:10px;overflow:hidden}
+.row{display:grid;grid-template-columns:90px minmax(0,1fr);border-bottom:1px solid var(--hair)}
+.row:last-child{border-bottom:0}
+.tag{padding:12px;font:12px var(--mono);color:var(--soft);border-right:1px solid var(--hair);display:grid;align-content:start;gap:4px}
+.tag b{font-weight:600}
+.tag.v1 b{color:var(--v1)}
+.stage{overflow-x:auto;padding:10px 14px}
+.stage svg{display:block}
+.waterfall{display:grid;gap:0}
+.wf{display:grid;grid-template-columns:70px minmax(0,1fr) minmax(0,1fr);align-items:baseline;gap:16px;padding:10px 14px;border-bottom:1px solid var(--hair)}
+.wf:last-child{border-bottom:0}
+.wf .sz{font:12px var(--mono);color:var(--mute)}
+.wf .t{white-space:nowrap;overflow:hidden;text-overflow:clip;font-kerning:normal}
+.wfhead{display:grid;grid-template-columns:70px 1fr 1fr;gap:16px;padding:8px 14px;background:var(--wash);font:12px var(--mono);color:var(--soft);border-bottom:1px solid var(--hair)}
+.glyphs{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+.card{border:1px solid var(--hair);border-radius:10px;overflow:hidden;display:grid}
+.card .hd{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-bottom:1px solid var(--hair);font:12px var(--mono);color:var(--soft)}
+.card .hd b{font:400 20px 'ArkV2', var(--ui);color:var(--ink)}
+.card .pair{display:grid;grid-template-columns:1fr 1fr}
+.card .pair > div{padding:6px;display:grid;gap:2px}
+.card .pair > div + div{border-left:1px solid var(--hair)}
+.card .cap{font:11px var(--mono);color:var(--mute);display:flex;justify-content:space-between}
+.card .note{padding:8px 12px;border-top:1px solid var(--hair);font-size:12.5px;color:var(--soft);line-height:1.45}
+.card svg{width:100%;height:auto;display:block}
+.overlay .card .pair{grid-template-columns:1fr}
+.overlay .card .pair > div:first-child{display:none}
+.tablewrap{overflow-x:auto;border:1px solid var(--hair);border-radius:10px}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:13.5px}
+th,td{padding:9px 12px;border-bottom:1px solid var(--hair);text-align:left;font-variant-numeric:tabular-nums}
+th{background:var(--wash);font:600 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--soft)}
+td.n{font-family:var(--mono)}
+tr:last-child td{border-bottom:0}
+.better{color:#1c7c48}
+@media (max-width:640px){.row{grid-template-columns:1fr}.tag{border-right:0;border-bottom:1px solid var(--hair)}.wf,.wfhead{grid-template-columns:44px 1fr 1fr;gap:8px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div style="display:grid;gap:6px">
+      <h1>Arkerion Sans, v1 / v2</h1>
+      <span class="sub">Étude ArkerionStudy-1-Atelier (v1) et ArkerionSans-Regular-v2 (v2). 1000 unités par cadratin.</span>
+    </div>
+    <div class="legend"><span><i style="background:var(--v1)"></i>v1 originale</span><span><i style="background:var(--v2)"></i>v2 améliorée</span><span><i style="background:var(--metric)"></i>lignes de métrique</span></div>
+  </header>
+
+  <div class="controls" role="group" aria-label="Réglages">
+    <label for="txt">Texte <input type="text" id="txt" value="Arkerion" maxlength="60" autocomplete="off"></label>
+    <label for="size">Taille <input type="range" id="size" min="12" max="260" value="150"><output id="sizeO">150 px</output></label>
+    <label for="weight">Poids visuel <input type="range" id="weight" min="-0.6" max="1.6" step="0.1" value="0"><output id="weightO">0</output></label>
+    <label for="track">Espacement <input type="range" id="track" min="-60" max="160" step="5" value="0"><output id="trackO">0</output></label>
+    <label for="lines"><input type="checkbox" id="lines" checked> Lignes</label>
+    <label for="kern"><input type="checkbox" id="kern" checked> Crénage v2</label>
+  </div>
+
+  <section aria-labelledby="h-proof">
+    <h2 id="h-proof">Épreuve vectorielle</h2>
+    <div class="panel">
+      <div class="row"><div class="tag v1"><b>v1</b><span>originale</span></div><div class="stage" id="st1"></div></div>
+      <div class="row"><div class="tag"><b>v2</b><span>améliorée</span></div><div class="stage" id="st2"></div></div>
+    </div>
+    <p class="sub" style="margin-top:8px">Dessin direct des contours de chaque police. Lignes : ascendante, hauteur des capitales, hauteur d'x, ligne de base, descendante. Seuls les 14 glyphes de l'étude sont dessinés (A R K E I O N a r k e i o n) ; les autres caractères sont ignorés.</p>
+  </section>
+
+  <section aria-labelledby="h-wf">
+    <h2 id="h-wf">« Arkerion » à plusieurs tailles</h2>
+    <div class="panel waterfall" id="wf"></div>
+    <p class="sub" style="margin-top:8px">Rendu réel par le navigateur, avec les polices installées dans la page : c'est ici que se juge la lisibilité aux petites tailles.</p>
+  </section>
+
+  <section aria-labelledby="h-gl">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+      <h2 id="h-gl" style="margin:0">Glyphes avant / après</h2>
+      <label for="ov" style="font:12px var(--mono);color:var(--soft);display:flex;gap:8px;align-items:center"><input type="checkbox" id="ov"> Superposer (v1 en contour rouge)</label>
+    </div>
+    <div class="glyphs" id="glyphs" style="margin-top:12px"></div>
+  </section>
+
+  <section aria-labelledby="h-tab">
+    <h2 id="h-tab">Mesures</h2>
+    <div class="tablewrap"><table id="tab"></table></div>
+  </section>
+</div>
+
+<script>
+const DATA = {"v1": {"glyphs": {"A": {"d": "M92 0 177 -196H473L558 0H662L354 -708H320L12 0ZM325 -536 441 -269H209Z", "adv": 674, "lsb": 12, "rsb": 12}, "R": {"d": "M82 0H170V-700H82ZM166 -624H373V-700H166ZM166 -312H373V-384H166ZM372 -312C505 -312 602 -393 602 -506C602 -619 505 -700 372 -700V-624C455 -624 510 -576 510 -504C510 -432 455 -384 372 -384ZM131 -352 520 0H657L269 -352Z", "adv": 654, "lsb": 82, "rsb": -3}, "K": {"d": "M82 0H170V-700H82ZM126 -186 661 -700H537L126 -305ZM126 -236 502 0H683L126 -349Z", "adv": 664, "lsb": 82, "rsb": -19}, "E": {"d": "M82 0H170V-700H82ZM166 -624H530V-700H166ZM166 -314H492V-385H166ZM166 0H552V-76H166Z", "adv": 588, "lsb": 82, "rsb": 36}, "I": {"d": "M82 0H170V-700H82Z", "adv": 252, "lsb": 82, "rsb": 82}, "O": {"d": "M782 -350C782 -551 618 -712 414 -712C210 -712 46 -551 46 -350C46 -149 210 12 414 12C618 12 782 -149 782 -350ZM688 -350C688 -185 571 -62 414 -62C257 -62 140 -185 140 -350C140 -515 257 -638 414 -638C571 -638 688 -515 688 -350Z", "adv": 828, "lsb": 46, "rsb": 46}, "N": {"d": "M82 0H161V-700H82ZM593 0H672V-700H593ZM554 0H672L200 -700H82Z", "adv": 754, "lsb": 82, "rsb": 82}, "a": {"d": "M372 0H452V-262H372ZM452 -260C452 -400 366 -510 256 -510C188 -510 130 -460 99 -385L148 -279C154 -377 197 -447 256 -447C323 -447 372 -368 372 -260ZM390 -246C351 -273 298 -290 238 -290C128 -290 42 -222 42 -136C42 -54 128 10 238 10C298 10 351 -6 390 -32V-98C362 -73 309 -57 244 -57C178 -57 130 -92 130 -139C130 -194 178 -233 244 -233C309 -233 362 -215 390 -186Z", "adv": 511, "lsb": 42, "rsb": 59}, "r": {"d": "M66 0H146V-500H66ZM367 -413C341 -472 299 -510 251 -510C204 -510 162 -488 130 -452V-377C155 -422 197 -449 247 -449C280 -449 307 -404 318 -334Z", "adv": 377, "lsb": 66, "rsb": 10}, "k": {"d": "M66 0H146V-735H66ZM106 -117 463 -500H354L106 -234ZM106 -167 327 0H477L106 -279Z", "adv": 468, "lsb": 66, "rsb": -9}, "e": {"d": "M489 -232C490 -238 490 -244 490 -250C490 -396 391 -510 266 -510C141 -510 42 -396 42 -250C42 -104 141 10 266 10C343 10 410 -33 451 -101L395 -172C375 -102 327 -56 266 -56C185 -56 127 -137 127 -250C127 -363 185 -444 266 -444C347 -444 405 -363 405 -250C405 -244 405 -238 405 -232ZM82 -232H489V-291H82Z", "adv": 530, "lsb": 42, "rsb": 40}, "i": {"d": "M66 0H146V-500H66ZM154 -636C154 -663 133 -684 106 -684C79 -684 58 -663 58 -636C58 -609 79 -588 106 -588C133 -588 154 -609 154 -636Z", "adv": 212, "lsb": 58, "rsb": 58}, "o": {"d": "M518 -250C518 -396 413 -510 280 -510C147 -510 42 -396 42 -250C42 -104 147 10 280 10C413 10 518 -104 518 -250ZM432 -250C432 -137 368 -56 280 -56C192 -56 128 -137 128 -250C128 -363 192 -444 280 -444C368 -444 432 -363 432 -250Z", "adv": 560, "lsb": 42, "rsb": 42}, "n": {"d": "M66 0H146V-500H66ZM378 0H458V-267H378ZM458 -265C458 -402 372 -510 262 -510C211 -510 165 -486 130 -447V-369C156 -418 202 -449 258 -449C328 -449 378 -372 378 -265Z", "adv": 520, "lsb": 66, "rsb": 62}}, "kern": {}, "space": 250, "metrics": {"asc": 735, "cap": 700, "xh": 500, "desc": -200}}, "v2": {"glyphs": {"A": {"d": "M14 0H90L174 -186H517L602 0H698L379 -700H333ZM346 -562 486 -254H205Z", "adv": 716, "lsb": 14, "rsb": 18}, "R": {"d": "M80 0H166V-312H377L605 0H729L470 -326C560 -354 620 -422 620 -506C620 -617 515 -700 376 -700H80ZM166 -626H376C465 -626 527 -576 527 -503C527 -430 465 -380 376 -380H166Z", "adv": 745, "lsb": 80, "rsb": 16}, "K": {"d": "M80 0H166V-205L331 -358L611 0H721L394 -417L698 -700H583L166 -298V-700H80Z", "adv": 737, "lsb": 80, "rsb": 16}, "E": {"d": "M80 0H536V-74H166V-323H484V-393H166V-626H518V-700H80Z", "adv": 576, "lsb": 80, "rsb": 40}, "I": {"d": "M80 0H166V-700H80Z", "adv": 246, "lsb": 80, "rsb": 80}, "O": {"d": "M788 -350C788 -553 625 -712 417 -712C209 -712 46 -553 46 -350C46 -147 209 12 417 12C625 12 788 -147 788 -350ZM695 -350C695 -184 577 -62 417 -62C257 -62 139 -184 139 -350C139 -516 257 -638 417 -638C577 -638 695 -516 695 -350Z", "adv": 834, "lsb": 46, "rsb": 46}, "N": {"d": "M80 0H159V-588L576 0H686V-700H607V-112L190 -700H80Z", "adv": 766, "lsb": 80, "rsb": 80}, "a": {"d": "M460 0V-312C460 -435 371 -530 256 -530C175 -530 108 -481 76 -407C95 -385 119 -372 147 -370C162 -427 202 -465 252 -465C326 -465 380 -401 380 -312V-255C339 -278 287 -291 228 -291C111 -291 24 -225 24 -137C24 -53 111 10 228 10C287 10 339 -3 380 -24V0ZM380 -84C346 -67 296 -57 236 -57C161 -57 108 -91 108 -140C108 -194 161 -233 236 -233C296 -233 346 -221 380 -202Z", "adv": 518, "lsb": 24, "rsb": 58}, "r": {"d": "M64 0H144V-385C161 -433 196 -463 239 -463C277 -463 306 -422 316 -360C343 -364 366 -380 386 -406C361 -480 309 -530 245 -530C204 -530 168 -501 144 -455V-520H64Z", "adv": 401, "lsb": 64, "rsb": 15}, "k": {"d": "M64 0H144V-152L243 -253L428 0H528L300 -310L508 -520H405L144 -243V-735H64Z", "adv": 541, "lsb": 64, "rsb": 13}, "e": {"d": "M509 -235C510 -243 510 -252 510 -260C510 -411 406 -530 275 -530C143 -530 40 -411 40 -260C40 -109 143 10 275 10C351 10 418 -30 461 -93C447 -120 427 -138 401 -146C375 -92 329 -58 275 -58C195 -58 134 -132 126 -235ZM127 -297C139 -394 198 -462 275 -462C352 -462 411 -394 423 -297Z", "adv": 534, "lsb": 40, "rsb": 24}, "i": {"d": "M64 0H144V-520H64ZM152 -687C152 -714 131 -735 104 -735C77 -735 56 -714 56 -687C56 -660 77 -639 104 -639C131 -639 152 -660 152 -687Z", "adv": 208, "lsb": 56, "rsb": 56}, "o": {"d": "M525 -260C525 -411 419 -530 282 -530C146 -530 39 -411 39 -260C39 -109 146 10 282 10C419 10 525 -109 525 -260ZM439 -260C439 -144 373 -58 282 -58C192 -58 126 -144 126 -260C126 -376 192 -462 282 -462C373 -462 439 -376 439 -260Z", "adv": 565, "lsb": 39, "rsb": 40}, "n": {"d": "M64 0H144V-333C163 -413 218 -466 289 -466C351 -466 396 -384 396 -270V0H476V-270C476 -417 397 -530 295 -530C235 -530 182 -502 144 -455V-520H64Z", "adv": 533, "lsb": 64, "rsb": 57}}, "kern": {"AR": -7, "Ae": -11, "Ao": -11, "RK": -8, "RI": -8, "KE": -7, "ER": -7, "ra": -10, "re": -9, "ro": -9, "ka": -7, "ke": -12, "ko": -12}, "space": 266, "metrics": {"asc": 735, "cap": 700, "xh": 520, "desc": -200}}, "table": [["Hauteur d'x", 500, 520, true, "+4 % : minuscules plus lisibles, rapport x/H 0,74"], ["Hauteur des capitales", 700, 700, false, ""], ["Fût capitale (I)", 88.0, 86.0, false, ""], ["Fût minuscule (n)", 80.0, 80.0, false, ""], ["Délié horizontal (barre du E)", 76.0, 74.0, false, ""], ["o : flanc / haut / bas", "86.0 / 66.0 / 66.0", "87.0 / 68.0 / 68.0", true, "flancs 1,08 × fût, déliés 0,85 × fût"], ["Sommet du A", "708 (pointe en dépassement)", "700 (sommet plat)", true, "aligné sur la hauteur des capitales"], ["Contours (14 glyphes)", 37, 21, true, "un contour par silhouette"], ["Chevauchements de contours", 23, 0, true, "plus aucun : rendu sans liseré"], ["Auto-intersections", 0, 0, false, ""], ["Extremums manquants", 0, 0, false, ""], ["Glyphes à approche négative", 3, 0, true, "R, K et k débordaient de leur chasse"], ["Paires de crénage", 0, 13, true, ""], ["Largeur de « Arkerion »", 3718, 3887, false, "en unités, crénage compris"]]};
+const NOTES = {"A": "Plus large et mieux assis : sommet plat étroit aligné sur H, jambage gauche délié et droit appuyé, barre abaissée.", "R": "Jambe raide issue de la panse, qui s'évase vers le pied et dépasse la panse : plus de caractère, plus de stabilité.", "K": "Jambe greffée sur le bras plutôt que croisée ; bras légèrement affiné au fût, plus de débordement de chasse.", "E": "Barre médiane au-dessus du centre géométrique (centre optique), bras inférieur le plus long.", "I": "Fût de 86 unités, cohérent avec les autres capitales.", "O": "Flancs 1,08 × fût, déliés 74 : couleur égale à celle des droites ; dépassement de 12.", "N": "Fûts affinés (0,92) et diagonale à 1,04 × fût, calculée en épaisseur réelle.", "a": "Capuchon et panse recalibrés pour la hauteur d'x ; jonctions affinées, terminaison radiale adoucie.", "r": "Oreille raccourcie, coupe perpendiculaire au trait et légèrement bombée : plus de pointe.", "k": "Même construction que le K, bras et jambe équilibrés autour d'une jonction unique.", "e": "Terminaison inférieure radiale et bombée, ouverture agrandie, barre au-dessus du centre.", "i": "Point aligné sur l'ascendante, diamètre 1,2 × fût.", "o": "Construction conservée ; épaisseurs rééquilibrées, dépassement de 10, tension 0,56.", "n": "Épaule qui naît du fût sous son sommet, aisselle profonde (0,64 x) : arche plus fluide."};
+const $ = id => document.getElementById(id);
+const F = { v1: DATA.v1, v2: DATA.v2 };
+
+function layout(font, text, track, useKern){
+  const out = []; let x = 0, prev = null;
+  for (const ch of text){
+    if (ch === ' '){ x += font.space + track; prev = null; continue; }
+    const g = font.glyphs[ch]; if (!g){ prev = null; continue; }
+    if (prev && useKern) x += (font.kern[prev + ch] || 0);
+    out.push({ ch, x, d: g.d }); x += g.adv + track; prev = ch;
+  }
+  return { items: out, width: Math.max(x - track, 1) };
+}
+
+function proof(font, el, color){
+  const text = $('txt').value || 'Arkerion', size = +$('size').value;
+  const track = +$('track').value, w = +$('weight').value;
+  const L = layout(font, text, track, font === F.v2 && $('kern').checked);
+  const m = font.metrics, top = Math.max(m.asc, m.cap) + 60, bot = m.desc - 40;
+  const H = top - bot, scale = size / 1000;
+  const lines = $('lines').checked ? [['asc', m.asc], ['H', m.cap], ['x', m.xh], ['0', 0], ['desc', m.desc]].map(([n, y]) =>
+    `<line x1="-40" x2="${L.width + 40}" y1="${-y}" y2="${-y}" style="stroke:var(--metric)" stroke-width="${1 / scale}" opacity="${n === '0' ? .9 : .55}"/>
+     <text x="${L.width + 50}" y="${-y + 4 / scale}" font-size="${11 / scale}" style="fill:var(--metric)" font-family="ui-monospace,monospace">${n} ${y}</text>`).join('') : '';
+  const stroke = w !== 0 ? `style="stroke:${w > 0 ? color : 'var(--paper)'};fill:${color}" stroke-width="${Math.abs(w) * 2 / scale}" stroke-linejoin="round" paint-order="${w > 0 ? 'stroke' : 'fill'}"` : '';
+  const glyphs = L.items.map(it => `<path transform="translate(${it.x} 0)" d="${it.d}" ${stroke || `style="fill:${color}"`}/>`).join('');
+  el.innerHTML = `<svg width="${(L.width + 180) * scale}" height="${H * scale}" viewBox="-40 ${-top} ${L.width + 180} ${H}" role="img" aria-label="${text}">${lines}${glyphs}</svg>`;
+}
+
+function waterfall(){
+  const text = $('txt').value || 'Arkerion', track = +$('track').value / 1000, w = +$('weight').value;
+  const st = s => `letter-spacing:${track}em;-webkit-text-stroke:${w > 0 ? w + 'px currentColor' : '0'};font-size:${s}px`;
+  $('wf').innerHTML = `<div class="wfhead"><span>taille</span><span>v1</span><span>v2</span></div>` +
+    [12, 14, 16, 20, 24, 32, 48, 72, 110].map(s => `<div class="wf"><span class="sz">${s} px</span>
+      <span class="t" style="font-family:ArkV1;color:var(--v1);${st(s)}">${esc(text)}</span>
+      <span class="t" style="font-family:ArkV2;${st(s)}">${esc(text)}</span></div>`).join('');
+}
+const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function glyphSVG(font, ch, color, outlineOf){
+  const g = font.glyphs[ch], m = font.metrics, W = 900, top = 800, bot = -260;
+  const x0 = (W - g.adv) / 2;
+  const lines = [m.asc, m.cap, m.xh, 0, m.desc].map(y => `<line x1="0" x2="${W}" y1="${-y}" y2="${-y}" style="stroke:var(--metric)" stroke-width="2" opacity=".45"/>`).join('');
+  const box = `<rect x="${x0}" y="${-top}" width="${g.adv}" height="${top - bot}" style="fill:var(--metric-soft)"/>`;
+  let over = '';
+  if (outlineOf){ const o = outlineOf.glyphs[ch]; over = `<path transform="translate(${(W - o.adv) / 2} 0)" d="${o.d}" style="fill:none;stroke:var(--v1)" stroke-width="5"/>`; }
+  return `<svg viewBox="0 ${-top} ${W} ${top - bot}" role="img" aria-label="${ch}">${box}${lines}<path transform="translate(${x0} 0)" d="${g.d}" style="fill:${color}"/>${over}</svg>`;
+}
+
+function glyphs(){
+  const ov = $('ov').checked;
+  document.body.classList.toggle('overlay', ov);
+  $('glyphs').innerHTML = 'ARKEIONarkeion'.split('').map(ch => {
+    const a = F.v1.glyphs[ch], b = F.v2.glyphs[ch];
+    return `<article class="card"><div class="hd"><b>${ch}</b><span>chasse ${a.adv} → ${b.adv}</span></div>
+      <div class="pair"><div><div class="cap"><span>v1</span><span>${a.lsb} | ${a.rsb}</span></div>${glyphSVG(F.v1, ch, 'var(--v1)')}</div>
+      <div><div class="cap"><span>v2${ov ? ' + v1' : ''}</span><span>${b.lsb} | ${b.rsb}</span></div>${glyphSVG(F.v2, ch, 'var(--v2)', ov ? F.v1 : null)}</div></div>
+      ${NOTES[ch] ? `<div class="note">${NOTES[ch]}</div>` : ''}</article>`;
+  }).join('');
+}
+
+function table(){
+  const rows = DATA.table;
+  $('tab').innerHTML = `<thead><tr><th>Mesure</th><th>v1</th><th>v2</th><th>Commentaire</th></tr></thead><tbody>` +
+    rows.map(r => `<tr><td>${r[0]}</td><td class="n">${r[1]}</td><td class="n ${r[3] ? 'better' : ''}">${r[2]}</td><td>${r[4] || ''}</td></tr>`).join('') + '</tbody>';
+}
+
+function render(){
+  $('sizeO').value = $('size').value + ' px'; $('weightO').value = $('weight').value; $('trackO').value = $('track').value;
+  proof(F.v1, $('st1'), 'var(--v1)'); proof(F.v2, $('st2'), 'var(--v2)'); waterfall();
+}
+['txt', 'size', 'weight', 'track', 'lines', 'kern'].forEach(id => $(id).addEventListener('input', render));
+$('ov').addEventListener('change', glyphs);
+render(); glyphs(); table();
+</script>
+</body>
+</html>

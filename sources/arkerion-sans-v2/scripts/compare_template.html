@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Arkerion Sans v1 / v2</title>
+<style>
+/* Banc d'épreuve typographique : réglages en haut, épreuve vectorielle avec
+   lignes de métrique, cascade de tailles, établi de glyphes, tableau de mesures. */
+:root{
+  --paper:#ffffff; --ink:#0d0e10; --soft:#43474f; --mute:#767b85; --hair:#e4e5e9; --wash:#f6f6f7;
+  --v1:#b23a3a; --v2:#0d0e10; --metric:#6e569f; --metric-soft:rgba(110,86,159,.14);
+  --ui:system-ui, -apple-system, "Segoe UI", sans-serif; --mono:ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme:light;
+}
+@font-face{font-family:'ArkV1';src:url(data:font/otf;base64,__V1__) format('opentype')}
+@font-face{font-family:'ArkV2';src:url(data:font/otf;base64,__V2__) format('opentype')}
+*{box-sizing:border-box}
+html,body{background:var(--paper);color:var(--ink)}
+body{margin:0;font:14px/1.5 var(--ui);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 72px}
+.wrap{max-width:1240px;margin:0 auto;display:grid;gap:36px}
+header{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:12px}
+h1{margin:0;font:400 34px/1.1 'ArkV2', var(--ui);letter-spacing:-.01em}
+h2{margin:0 0 12px;font:600 12px/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+.sub{color:var(--mute);font-size:13px}
+.legend{display:flex;gap:16px;font:12px var(--mono);color:var(--soft)}
+.legend i{display:inline-block;width:14px;height:3px;vertical-align:middle;margin-right:6px}
+.controls{position:sticky;top:env(safe-area-inset-top,0px);z-index:3;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);
+  display:flex;flex-wrap:wrap;gap:12px 22px;align-items:center;padding-block:12px;border-block:1px solid var(--hair)}
+.controls label{display:flex;align-items:center;gap:8px;font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+.controls output{font:12px var(--mono);color:var(--ink);min-width:4.5em;text-transform:none;letter-spacing:0}
+input[type=text]{font:15px var(--ui);padding:6px 9px;border:1px solid var(--hair);border-radius:6px;width:min(260px,70vw);color:var(--ink)}
+input[type=range]{width:120px;accent-color:var(--metric)}
+input[type=checkbox]{accent-color:var(--metric)}
+:focus-visible{outline:2px solid var(--metric);outline-offset:2px}
+.panel{border:1px solid var(--hair);border-radius:10px;overflow:hidden}
+.row{display:grid;grid-template-columns:90px minmax(0,1fr);border-bottom:1px solid var(--hair)}
+.row:last-child{border-bottom:0}
+.tag{padding:12px;font:12px var(--mono);color:var(--soft);border-right:1px solid var(--hair);display:grid;align-content:start;gap:4px}
+.tag b{font-weight:600}
+.tag.v1 b{color:var(--v1)}
+.stage{overflow-x:auto;padding:10px 14px}
+.stage svg{display:block}
+.waterfall{display:grid;gap:0}
+.wf{display:grid;grid-template-columns:70px minmax(0,1fr) minmax(0,1fr);align-items:baseline;gap:16px;padding:10px 14px;border-bottom:1px solid var(--hair)}
+.wf:last-child{border-bottom:0}
+.wf .sz{font:12px var(--mono);color:var(--mute)}
+.wf .t{white-space:nowrap;overflow:hidden;text-overflow:clip;font-kerning:normal}
+.wfhead{display:grid;grid-template-columns:70px 1fr 1fr;gap:16px;padding:8px 14px;background:var(--wash);font:12px var(--mono);color:var(--soft);border-bottom:1px solid var(--hair)}
+.glyphs{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+.card{border:1px solid var(--hair);border-radius:10px;overflow:hidden;display:grid}
+.card .hd{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-bottom:1px solid var(--hair);font:12px var(--mono);color:var(--soft)}
+.card .hd b{font:400 20px 'ArkV2', var(--ui);color:var(--ink)}
+.card .pair{display:grid;grid-template-columns:1fr 1fr}
+.card .pair > div{padding:6px;display:grid;gap:2px}
+.card .pair > div + div{border-left:1px solid var(--hair)}
+.card .cap{font:11px var(--mono);color:var(--mute);display:flex;justify-content:space-between}
+.card .note{padding:8px 12px;border-top:1px solid var(--hair);font-size:12.5px;color:var(--soft);line-height:1.45}
+.card svg{width:100%;height:auto;display:block}
+.overlay .card .pair{grid-template-columns:1fr}
+.overlay .card .pair > div:first-child{display:none}
+.tablewrap{overflow-x:auto;border:1px solid var(--hair);border-radius:10px}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:13.5px}
+th,td{padding:9px 12px;border-bottom:1px solid var(--hair);text-align:left;font-variant-numeric:tabular-nums}
+th{background:var(--wash);font:600 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--soft)}
+td.n{font-family:var(--mono)}
+tr:last-child td{border-bottom:0}
+.better{color:#1c7c48}
+@media (max-width:640px){.row{grid-template-columns:1fr}.tag{border-right:0;border-bottom:1px solid var(--hair)}.wf,.wfhead{grid-template-columns:44px 1fr 1fr;gap:8px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div style="display:grid;gap:6px">
+      <h1>Arkerion Sans, v1 / v2</h1>
+      <span class="sub">Étude ArkerionStudy-1-Atelier (v1) et ArkerionSans-Regular-v2 (v2). 1000 unités par cadratin.</span>
+    </div>
+    <div class="legend"><span><i style="background:var(--v1)"></i>v1 originale</span><span><i style="background:var(--v2)"></i>v2 améliorée</span><span><i style="background:var(--metric)"></i>lignes de métrique</span></div>
+  </header>
+
+  <div class="controls" role="group" aria-label="Réglages">
+    <label for="txt">Texte <input type="text" id="txt" value="Arkerion" maxlength="60" autocomplete="off"></label>
+    <label for="size">Taille <input type="range" id="size" min="12" max="260" value="150"><output id="sizeO">150 px</output></label>
+    <label for="weight">Poids visuel <input type="range" id="weight" min="-0.6" max="1.6" step="0.1" value="0"><output id="weightO">0</output></label>
+    <label for="track">Espacement <input type="range" id="track" min="-60" max="160" step="5" value="0"><output id="trackO">0</output></label>
+    <label for="lines"><input type="checkbox" id="lines" checked> Lignes</label>
+    <label for="kern"><input type="checkbox" id="kern" checked> Crénage v2</label>
+  </div>
+
+  <section aria-labelledby="h-proof">
+    <h2 id="h-proof">Épreuve vectorielle</h2>
+    <div class="panel">
+      <div class="row"><div class="tag v1"><b>v1</b><span>originale</span></div><div class="stage" id="st1"></div></div>
+      <div class="row"><div class="tag"><b>v2</b><span>améliorée</span></div><div class="stage" id="st2"></div></div>
+    </div>
+    <p class="sub" style="margin-top:8px">Dessin direct des contours de chaque police. Lignes : ascendante, hauteur des capitales, hauteur d'x, ligne de base, descendante. Seuls les 14 glyphes de l'étude sont dessinés (A R K E I O N a r k e i o n) ; les autres caractères sont ignorés.</p>
+  </section>
+
+  <section aria-labelledby="h-wf">
+    <h2 id="h-wf">« Arkerion » à plusieurs tailles</h2>
+    <div class="panel waterfall" id="wf"></div>
+    <p class="sub" style="margin-top:8px">Rendu réel par le navigateur, avec les polices installées dans la page : c'est ici que se juge la lisibilité aux petites tailles.</p>
+  </section>
+
+  <section aria-labelledby="h-gl">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+      <h2 id="h-gl" style="margin:0">Glyphes avant / après</h2>
+      <label for="ov" style="font:12px var(--mono);color:var(--soft);display:flex;gap:8px;align-items:center"><input type="checkbox" id="ov"> Superposer (v1 en contour rouge)</label>
+    </div>
+    <div class="glyphs" id="glyphs" style="margin-top:12px"></div>
+  </section>
+
+  <section aria-labelledby="h-tab">
+    <h2 id="h-tab">Mesures</h2>
+    <div class="tablewrap"><table id="tab"></table></div>
+  </section>
+</div>
+
+<script>
+const DATA = __DATA__;
+const NOTES = __NOTES__;
+const $ = id => document.getElementById(id);
+const F = { v1: DATA.v1, v2: DATA.v2 };
+
+function layout(font, text, track, useKern){
+  const out = []; let x = 0, prev = null;
+  for (const ch of text){
+    if (ch === ' '){ x += font.space + track; prev = null; continue; }
+    const g = font.glyphs[ch]; if (!g){ prev = null; continue; }
+    if (prev && useKern) x += (font.kern[prev + ch] || 0);
+    out.push({ ch, x, d: g.d }); x += g.adv + track; prev = ch;
+  }
+  return { items: out, width: Math.max(x - track, 1) };
+}
+
+function proof(font, el, color){
+  const text = $('txt').value || 'Arkerion', size = +$('size').value;
+  const track = +$('track').value, w = +$('weight').value;
+  const L = layout(font, text, track, font === F.v2 && $('kern').checked);
+  const m = font.metrics, top = Math.max(m.asc, m.cap) + 60, bot = m.desc - 40;
+  const H = top - bot, scale = size / 1000;
+  const lines = $('lines').checked ? [['asc', m.asc], ['H', m.cap], ['x', m.xh], ['0', 0], ['desc', m.desc]].map(([n, y]) =>
+    `<line x1="-40" x2="${L.width + 40}" y1="${-y}" y2="${-y}" style="stroke:var(--metric)" stroke-width="${1 / scale}" opacity="${n === '0' ? .9 : .55}"/>
+     <text x="${L.width + 50}" y="${-y + 4 / scale}" font-size="${11 / scale}" style="fill:var(--metric)" font-family="ui-monospace,monospace">${n} ${y}</text>`).join('') : '';
+  const stroke = w !== 0 ? `style="stroke:${w > 0 ? color : 'var(--paper)'};fill:${color}" stroke-width="${Math.abs(w) * 2 / scale}" stroke-linejoin="round" paint-order="${w > 0 ? 'stroke' : 'fill'}"` : '';
+  const glyphs = L.items.map(it => `<path transform="translate(${it.x} 0)" d="${it.d}" ${stroke || `style="fill:${color}"`}/>`).join('');
+  el.innerHTML = `<svg width="${(L.width + 180) * scale}" height="${H * scale}" viewBox="-40 ${-top} ${L.width + 180} ${H}" role="img" aria-label="${text}">${lines}${glyphs}</svg>`;
+}
+
+function waterfall(){
+  const text = $('txt').value || 'Arkerion', track = +$('track').value / 1000, w = +$('weight').value;
+  const st = s => `letter-spacing:${track}em;-webkit-text-stroke:${w > 0 ? w + 'px currentColor' : '0'};font-size:${s}px`;
+  $('wf').innerHTML = `<div class="wfhead"><span>taille</span><span>v1</span><span>v2</span></div>` +
+    [12, 14, 16, 20, 24, 32, 48, 72, 110].map(s => `<div class="wf"><span class="sz">${s} px</span>
+      <span class="t" style="font-family:ArkV1;color:var(--v1);${st(s)}">${esc(text)}</span>
+      <span class="t" style="font-family:ArkV2;${st(s)}">${esc(text)}</span></div>`).join('');
+}
+const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function glyphSVG(font, ch, color, outlineOf){
+  const g = font.glyphs[ch], m = font.metrics, W = 900, top = 800, bot = -260;
+  const x0 = (W - g.adv) / 2;
+  const lines = [m.asc, m.cap, m.xh, 0, m.desc].map(y => `<line x1="0" x2="${W}" y1="${-y}" y2="${-y}" style="stroke:var(--metric)" stroke-width="2" opacity=".45"/>`).join('');
+  const box = `<rect x="${x0}" y="${-top}" width="${g.adv}" height="${top - bot}" style="fill:var(--metric-soft)"/>`;
+  let over = '';
+  if (outlineOf){ const o = outlineOf.glyphs[ch]; over = `<path transform="translate(${(W - o.adv) / 2} 0)" d="${o.d}" style="fill:none;stroke:var(--v1)" stroke-width="5"/>`; }
+  return `<svg viewBox="0 ${-top} ${W} ${top - bot}" role="img" aria-label="${ch}">${box}${lines}<path transform="translate(${x0} 0)" d="${g.d}" style="fill:${color}"/>${over}</svg>`;
+}
+
+function glyphs(){
+  const ov = $('ov').checked;
+  document.body.classList.toggle('overlay', ov);
+  $('glyphs').innerHTML = 'ARKEIONarkeion'.split('').map(ch => {
+    const a = F.v1.glyphs[ch], b = F.v2.glyphs[ch];
+    return `<article class="card"><div class="hd"><b>${ch}</b><span>chasse ${a.adv} → ${b.adv}</span></div>
+      <div class="pair"><div><div class="cap"><span>v1</span><span>${a.lsb} | ${a.rsb}</span></div>${glyphSVG(F.v1, ch, 'var(--v1)')}</div>
+      <div><div class="cap"><span>v2${ov ? ' + v1' : ''}</span><span>${b.lsb} | ${b.rsb}</span></div>${glyphSVG(F.v2, ch, 'var(--v2)', ov ? F.v1 : null)}</div></div>
+      ${NOTES[ch] ? `<div class="note">${NOTES[ch]}</div>` : ''}</article>`;
+  }).join('');
+}
+
+function table(){
+  const rows = DATA.table;
+  $('tab').innerHTML = `<thead><tr><th>Mesure</th><th>v1</th><th>v2</th><th>Commentaire</th></tr></thead><tbody>` +
+    rows.map(r => `<tr><td>${r[0]}</td><td class="n">${r[1]}</td><td class="n ${r[3] ? 'better' : ''}">${r[2]}</td><td>${r[4] || ''}</td></tr>`).join('') + '</tbody>';
+}
+
+function render(){
+  $('sizeO').value = $('size').value + ' px'; $('weightO').value = $('weight').value; $('trackO').value = $('track').value;
+  proof(F.v1, $('st1'), 'var(--v1)'); proof(F.v2, $('st2'), 'var(--v2)'); waterfall();
+}
+['txt', 'size', 'weight', 'track', 'lines', 'kern'].forEach(id => $(id).addEventListener('input', render));
+$('ov').addEventListener('change', glyphs);
+render(); glyphs(); table();
+</script>
+</body>
+</html>
