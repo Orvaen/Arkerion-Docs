@@ -7,9 +7,9 @@ const config = {
   tagline: 'Développement web et logiciel',
   favicon: 'img/logo/arkerion-symbole-noir.svg',
 
-  url: 'https://rayan-studio.github.io',
+  url: 'https://orvaen.github.io',
   baseUrl: '/Arkerion-Docs/',
-  organizationName: 'rayan-studio',
+  organizationName: 'Orvaen',
   projectName: 'Arkerion-Docs',
   trailingSlash: false,
 
@@ -26,7 +26,7 @@ const config = {
         docs: {
           sidebarPath: './sidebars.js',
           routeBasePath: 'docs',
-          editUrl: 'https://github.com/rayan-studio/Arkerion-Docs/edit/main/',
+          editUrl: 'https://github.com/Orvaen/Arkerion-Docs/edit/main/',
           showLastUpdateTime: false,
         },
         blog: false,
@@ -52,7 +52,7 @@ const config = {
           { type: 'docSidebar', sidebarId: 'docs', position: 'left', label: 'Documentation' },
           { to: '/docs/identite/logo', position: 'left', label: 'Identité' },
           { to: '/docs/produits/nebula', position: 'left', label: 'Nebula' },
-          { href: 'https://github.com/rayan-studio/Arkerion-Docs', position: 'right', label: 'GitHub' },
+          { href: 'https://github.com/Orvaen/Arkerion-Docs', position: 'right', label: 'GitHub' },
         ],
       },
       footer: {
@@ -76,8 +76,8 @@ const config = {
           {
             title: 'Code source',
             items: [
-              { label: 'Arkerion-Docs', href: 'https://github.com/rayan-studio/Arkerion-Docs' },
-              { label: 'Nebula', href: 'https://github.com/rayan-studio/nebula' },
+              { label: 'Arkerion-Docs', href: 'https://github.com/Orvaen/Arkerion-Docs' },
+              { label: 'Nebula', href: 'https://github.com/Orvaen/nebula' },
             ],
           },
         ],

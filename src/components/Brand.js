@@ -32,25 +32,25 @@ export function Lockup({ size = 40 }) {
   );
 }
 
-export function LogoGrid() {
+export function LogoGrid({ name = 'Arkerion', prefix = 'arkerion', dir = '/img/logo/' }) {
   const files = [
-    ['Logo complet', 'usage principal', 'arkerion-logo-noir.svg', 'arkerion-logo-blanc.svg'],
-    ['Symbole seul', 'icône, avatar', 'arkerion-symbole-noir.svg', 'arkerion-symbole-blanc.svg'],
-    ['Nom seul', 'texte courant', 'arkerion-nom-noir.svg', 'arkerion-nom-blanc.svg'],
+    ['Logo complet', 'usage principal', `${prefix}-logo-noir.svg`, `${prefix}-logo-blanc.svg`],
+    ['Symbole seul', 'icône, avatar', `${prefix}-symbole-noir.svg`, `${prefix}-symbole-blanc.svg`],
+    ['Nom seul', 'texte courant', `${prefix}-nom-noir.svg`, `${prefix}-nom-blanc.svg`],
   ];
-  const base = useBaseUrl('/img/logo/');
+  const base = useBaseUrl(dir);
   return (
     <div className={styles.grid3}>
-      {files.map(([name, use, dark, light]) => (
-        <figure key={name} className={styles.tile}>
+      {files.map(([label, use, dark, light]) => (
+        <figure key={label} className={styles.tile}>
           <div className={styles.art}>
-            <img src={`${base}${dark}`} alt={`${name} Arkerion`} className={styles.logoImg} />
+            <img src={`${base}${dark}`} alt={`${label} ${name}`} className={styles.logoImg} />
           </div>
           <div className={`${styles.art} ${styles.dark}`}>
-            <img src={`${base}${light}`} alt={`${name} Arkerion, version blanche`} className={styles.logoImg} />
+            <img src={`${base}${light}`} alt={`${label} ${name}, version blanche`} className={styles.logoImg} />
           </div>
           <figcaption className={styles.cap}>
-            <span>{name}</span>
+            <span>{label}</span>
             <span className={styles.muted}>{use}</span>
           </figcaption>
         </figure>

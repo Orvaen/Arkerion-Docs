@@ -4,9 +4,14 @@ title: Nebula
 description: Nebula, le logiciel développé par Arkerion.
 ---
 
+import { LogoGrid } from '@site/src/components/Brand';
+import { NebulaLockup, NebulaPreviews } from '@site/src/components/Nebula';
+
 # Nebula
 
-Nebula est un logiciel développé par Arkerion. Son code source est hébergé sur GitHub : [rayan-studio/nebula](https://github.com/rayan-studio/nebula).
+<NebulaLockup />
+
+Nebula est un logiciel développé par Arkerion. Son code source est hébergé sur GitHub : [Orvaen/nebula](https://github.com/Orvaen/nebula).
 
 :::note Page à compléter
 Cette page sert de point de départ pour la documentation de Nebula. Complétez les sections ci-dessous avec les informations du projet.
@@ -19,7 +24,7 @@ Cette page sert de point de départ pour la documentation de Nebula. Complétez 
 ## Installation
 
 ```bash
-git clone https://github.com/rayan-studio/nebula.git
+git clone https://github.com/Orvaen/nebula.git
 cd nebula
 ```
 
@@ -29,7 +34,47 @@ cd nebula
 
 [Décrire le premier usage : configuration minimale, première action, résultat attendu.]
 
+## Logo
+
+Le logo de Nebula suit l'identité d'Arkerion : même grille, mêmes arrondis, noir et blanc uniquement, et le nom composé en Arkerion Sans.
+
+### Le symbole Amas
+
+Un grand module, entouré de modules plus petits qui s'en détachent. Il évoque une nébuleuse, un nuage de matière qui se condense, tout en restant un assemblage de blocs, comme le symbole [Structure](../identite/logo) d'Arkerion. Le grand module reprend l'arrondi signature d'Arkerion, en haut à droite.
+
+### Versions
+
+Chaque version existe en noir, pour les fonds clairs, et en blanc, pour les fonds sombres.
+
+<LogoGrid name="Nebula" prefix="nebula" dir="/img/nebula/" />
+
+Les fichiers SVG se trouvent dans [`static/img/nebula`](https://github.com/Orvaen/Arkerion-Docs/tree/main/static/img/nebula). Le nom y est vectorisé : il s'affiche correctement même sans la police installée.
+
+| Fichier | Usage |
+|---|---|
+| `nebula-logo-noir.svg`, `nebula-logo-blanc.svg` | Logo complet, usage principal |
+| `nebula-symbole-noir.svg`, `nebula-symbole-blanc.svg` | Icône d'application, favicon |
+| `nebula-nom-noir.svg`, `nebula-nom-blanc.svg` | Nom seul |
+| `nebula-avatar-noir.svg`, `nebula-avatar-noir.png` | Avatar carré sur fond plein (1024 px) |
+| `nebula-partage.png` | Carte de partage (1280 × 640), réseaux sociaux et GitHub |
+
+### Aperçus
+
+Le logo en situation, des grandes tailles jusqu'au favicon.
+
+<NebulaPreviews />
+
+### Règles d'usage
+
+Les règles du [logo Arkerion](../identite/logo) s'appliquent aussi à Nebula : même zone de protection, mêmes tailles minimales, pas de déformation, de recoloration ni d'effet. En plus :
+
+:::danger Interdit
+- Déplacer, retirer ou ajouter des modules : l'Amas compte toujours quatre blocs, dans cette disposition.
+- Pivoter ou retourner le symbole : le grand module reste en haut à gauche.
+- Associer le symbole Nebula au nom Arkerion, ou l'inverse.
+:::
+
 ## Ressources
 
-- Code source : [github.com/rayan-studio/nebula](https://github.com/rayan-studio/nebula)
+- Code source : [github.com/Orvaen/nebula](https://github.com/Orvaen/nebula)
 - Signaler un problème : onglet *Issues* du dépôt
