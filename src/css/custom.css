@@ -1,5 +1,6 @@
-/* Arkerion Docs — thème : polices Arkerion, noir sur blanc, et l'Améthyste
-   comme couleur signature (sélection, liens, états actifs, focus). */
+/* Arkerion Docs — thème crème : polices Arkerion, charbon sur crème
+   (palette « Gris Perle Minimaliste » : #FFF3DB #ECE7DD #CFC9BE #8E8A83 #2A2A2A),
+   et l'Améthyste comme couleur signature (sélection, liens, états actifs, focus). */
 
 @font-face {
   font-family: 'Arkerion Sans';
@@ -41,13 +42,17 @@
   --ifm-h2-font-size: 1.75rem;
   --ifm-h3-font-size: 1.25rem;
 
-  --ark-ink: #0d0e10;
-  --ark-soft: #43474f;
-  --ark-mute: #767b85;
-  --ark-hair: #e7e8eb;
-  --ark-wash: #f6f6f7;
+  /* Palette crème — Gris Perle Minimaliste */
+  --ark-paper: #fff3db;          /* crème : fond de page, espace négatif */
+  --ark-wash: #ece7dd;           /* perle : surfaces, code, cartes */
+  --ark-stone: #cfc9be;          /* pierre : filets marqués, bordures actives */
+  --ark-taupe: #8e8a83;          /* taupe : décor, icônes, séparateurs */
+  --ark-ink: #2a2a2a;            /* charbon : texte principal, logo */
+  --ark-soft: #4d4a45;           /* texte courant (8:1 sur crème) */
+  --ark-mute: #6f6b64;           /* légendes, métadonnées (4,8:1 sur crème) */
+  --ark-hair: #e3dccf;           /* filets fins entre crème et perle */
   --ark-signal: #6e569f;         /* Améthyste Arkerion */
-  --ark-signal-soft: #f1edf7;    /* teinte claire : fonds actifs, surlignage */
+  --ark-signal-soft: rgba(110, 86, 159, 0.12); /* fonds actifs, surlignage */
   --ark-signal-deep: #5b4587;    /* survol, texte actif */
 
   --ifm-color-primary: #6e569f;
@@ -63,27 +68,39 @@
   --ifm-menu-color-background-active: var(--ark-signal-soft);
   --ifm-font-color-base: var(--ark-ink);
   --ifm-color-content-secondary: var(--ark-soft);
-  --ifm-background-color: #ffffff;
+  --ifm-background-color: var(--ark-paper);
+  --ifm-background-surface-color: var(--ark-paper);
+  --ifm-navbar-background-color: var(--ark-paper);
+  --ifm-dropdown-background-color: var(--ark-paper);
+  --ifm-card-background-color: var(--ark-wash);
   --ifm-toc-border-color: var(--ark-hair);
+  --ifm-color-emphasis-100: #f4ebd9;
   --ifm-color-emphasis-200: var(--ark-hair);
+  --ifm-color-emphasis-300: var(--ark-stone);
+  --ifm-color-emphasis-600: var(--ark-mute);
+  --ifm-table-stripe-background: rgba(42, 42, 42, 0.03);
   --ifm-hr-border-color: var(--ark-hair);
   --ifm-navbar-shadow: none;
   --ifm-navbar-height: 3.75rem;
   --ifm-code-background: var(--ark-wash);
   --ifm-code-border-radius: 5px;
   --ifm-code-padding-horizontal: 0.36em;
-  --ifm-pre-background: #fbfbfc;
+  --ifm-pre-background: #f7eedc;
   --ifm-pre-line-height: 1.65;
   --ifm-global-radius: 8px;
   --docusaurus-highlighted-code-line-bg: rgba(110, 86, 159, 0.1);
 }
 
 [data-theme='dark'] {
-  --ark-ink: #eceef2;
-  --ark-soft: #b6bbc4;
-  --ark-mute: #8b919c;
-  --ark-hair: #2a2d34;
-  --ark-wash: #1b1d22;
+  /* Version sombre : la palette inversée, charbon chaud et texte crème. */
+  --ark-paper: #1e1d1b;
+  --ark-wash: #282624;
+  --ark-stone: #4a4742;
+  --ark-taupe: #8e8a83;
+  --ark-ink: #f3ecdf;
+  --ark-soft: #cfc9be;
+  --ark-mute: #a19c93;
+  --ark-hair: #34322e;
   --ark-signal: #b4a4d6;
   --ark-signal-soft: rgba(180, 164, 214, 0.16);
   --ark-signal-deep: #cbbee4;
@@ -99,9 +116,17 @@
   --ifm-link-hover-color: var(--ark-signal-deep);
   --ifm-menu-color-active: var(--ark-signal-deep);
   --ifm-menu-color-background-active: var(--ark-signal-soft);
-  --ifm-background-color: #111215;
-  --ifm-background-surface-color: #111215;
-  --ifm-pre-background: #17191e;
+  --ifm-background-color: var(--ark-paper);
+  --ifm-background-surface-color: var(--ark-paper);
+  --ifm-navbar-background-color: var(--ark-paper);
+  --ifm-dropdown-background-color: var(--ark-wash);
+  --ifm-card-background-color: var(--ark-wash);
+  --ifm-font-color-base: var(--ark-ink);
+  --ifm-color-emphasis-100: #242220;
+  --ifm-color-emphasis-200: var(--ark-hair);
+  --ifm-color-emphasis-300: var(--ark-stone);
+  --ifm-color-emphasis-600: var(--ark-mute);
+  --ifm-pre-background: #23211f;
   --docusaurus-highlighted-code-line-bg: rgba(180, 164, 214, 0.14);
 }
 
@@ -136,17 +161,34 @@ kbd {
 }
 
 code {
+  background: var(--ark-wash);
   border: 1px solid var(--ark-hair);
   vertical-align: baseline;
 }
 
 pre code {
   border: 0;
+  background: transparent;
 }
 
 .theme-code-block {
-  border: 1px solid var(--ark-hair);
+  border: 1px solid var(--ark-stone);
   box-shadow: none;
+}
+
+/* Tableaux : en-tête perle, filets fins. */
+.markdown table thead tr {
+  background: var(--ark-wash);
+}
+
+.markdown table th,
+.markdown table td {
+  border-color: var(--ark-hair);
+}
+
+/* Séparateurs : taupe discret. */
+.markdown hr {
+  border-color: var(--ark-stone);
 }
 
 .markdown h1,

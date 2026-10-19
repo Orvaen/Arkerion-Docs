@@ -36,11 +36,11 @@
   place-items: center;
   min-height: 130px;
   padding: 24px;
-  background: #ffffff;
+  background: #fff3db;
 }
 
 .dark {
-  background: #0d0e10;
+  background: #2a2a2a;
 }
 
 .logoImg {

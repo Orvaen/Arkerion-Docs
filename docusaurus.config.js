@@ -84,8 +84,9 @@ const config = {
         copyright: `© ${new Date().getFullYear()} Arkerion. Tous droits réservés.`,
       },
       prism: {
-        theme: prismThemes.github,
-        darkTheme: prismThemes.vsDark,
+        // Fonds de code accordés au thème crème (clair) et charbon chaud (sombre).
+        theme: { ...prismThemes.github, plain: { ...prismThemes.github.plain, backgroundColor: '#F7EEDC' } },
+        darkTheme: { ...prismThemes.vsDark, plain: { ...prismThemes.vsDark.plain, backgroundColor: '#23211F' } },
         additionalLanguages: ['bash', 'json'],
       },
       tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 3 },
