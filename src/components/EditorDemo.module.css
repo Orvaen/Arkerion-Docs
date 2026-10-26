@@ -1,0 +1,253 @@
+/* Éditeur de démonstration. Une seule grille verticale : --ed-lh pour chaque
+   ligne, --ed-pad en haut et en bas. Numéros, bande active, texte coloré et
+   zone de saisie s'alignent tous dessus. */
+
+.editor {
+  --ed-fs: 15px;
+  --ed-lh: 26px;
+  --ed-pad: 14px;
+  --ed-gutter: 64px;
+
+  /* Couleurs de la coloration (thème clair) */
+  --ed-keyword: #6e569f;
+  --ed-string: #3d7a52;
+  --ed-number: #b25c22;
+  --ed-comment: #8e8e96;
+  --ed-type: #8a5a10;
+  --ed-fn: #2c6aa0;
+  --ed-band: rgba(110, 86, 159, 0.05);
+  --ed-band-focus: rgba(110, 86, 159, 0.09);
+
+  margin: 24px 0 32px;
+  border: 1px solid var(--ark-stone);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--ifm-pre-background);
+  box-shadow: 0 18px 40px -30px rgba(0, 0, 0, 0.35);
+  font-family: var(--ifm-font-family-monospace);
+}
+
+:global([data-theme='dark']) .editor {
+  --ed-keyword: #b4a4d6;
+  --ed-string: #9fc99a;
+  --ed-number: #e0a46b;
+  --ed-comment: #7e7d7a;
+  --ed-type: #e3c27a;
+  --ed-fn: #8cb8e6;
+  --ed-band: rgba(255, 255, 255, 0.03);
+  --ed-band-focus: rgba(255, 255, 255, 0.055);
+}
+
+/* ---------- Barre du haut ---------- */
+
+.bar {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 8px 0 0;
+  border-bottom: 1px solid var(--ark-hair);
+  background: var(--ark-wash);
+  font-family: var(--ark-sans);
+}
+
+.tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  font-size: 0.85rem;
+  color: var(--ark-ink);
+  background: var(--ifm-pre-background);
+  border-right: 1px solid var(--ark-hair);
+  margin-bottom: -1px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--ark-signal);
+}
+
+.toggle {
+  appearance: none;
+  align-self: center;
+  border: 1px solid var(--ark-hair);
+  background: transparent;
+  border-radius: 999px;
+  padding: 3px 12px;
+  font: inherit;
+  font-size: 0.78rem;
+  color: var(--ark-mute);
+  cursor: pointer;
+}
+
+.toggle:hover,
+.toggle[aria-pressed='true'] {
+  color: var(--ark-ink);
+  border-color: var(--ark-stone);
+}
+
+/* ---------- Corps ---------- */
+
+.body {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--ed-gutter) minmax(0, 1fr);
+  font-size: var(--ed-fs);
+  line-height: var(--ed-lh);
+  font-feature-settings: 'calt' 1;
+  font-variant-ligatures: contextual;
+}
+
+.noLig .body {
+  font-feature-settings: 'calt' 0, 'liga' 0;
+  font-variant-ligatures: none;
+}
+
+/* Bande de la ligne active : traverse numéros et code. */
+.band {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: var(--ed-pad);
+  height: var(--ed-lh);
+  background: var(--ed-band);
+  box-shadow: inset 2px 0 0 transparent;
+  pointer-events: none;
+  transition: transform 0.06s ease-out;
+}
+
+.bandFocus {
+  background: var(--ed-band-focus);
+  box-shadow: inset 2px 0 0 var(--ark-signal);
+}
+
+.gutter {
+  list-style: none;
+  margin: 0;
+  padding: var(--ed-pad) 16px var(--ed-pad) 0;
+  text-align: right;
+  color: var(--ark-taupe);
+  font-variant-numeric: tabular-nums;
+  user-select: none;
+  border-right: 1px solid var(--ark-hair);
+}
+
+.editor .gutter li {
+  /* plus spécifique que « .markdown li + li » d'Infima */
+  display: block;
+  height: var(--ed-lh);
+  margin: 0;
+}
+
+.editor .numActive {
+  color: var(--ark-ink);
+}
+
+.scroller {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.stack {
+  position: relative;
+  min-width: 100%;
+  width: max-content;
+}
+
+.code,
+.input {
+  margin: 0;
+  padding: var(--ed-pad) 24px var(--ed-pad) 18px;
+  border: 0;
+  font: inherit;
+  font-size: var(--ed-fs);
+  line-height: var(--ed-lh);
+  letter-spacing: 0;
+  tab-size: 2;
+  white-space: pre;
+  font-feature-settings: inherit;
+  font-variant-ligatures: inherit;
+}
+
+.code {
+  background: transparent;
+  color: var(--ark-ink);
+  border-radius: 0;
+  overflow: visible;
+}
+
+.line {
+  display: inline;
+}
+
+.input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  resize: none;
+  overflow: hidden;
+  background: transparent;
+  color: transparent;
+  caret-color: var(--ark-ink);
+  outline: none;
+}
+
+.input::selection {
+  background: var(--ark-signal-soft);
+  color: transparent;
+}
+
+/* ---------- Coloration ---------- */
+
+.keyword { color: var(--ed-keyword); }
+.string { color: var(--ed-string); }
+.number { color: var(--ed-number); }
+.comment { color: var(--ed-comment); }
+.type { color: var(--ed-type); }
+.fn { color: var(--ed-fn); }
+
+/* ---------- Barre d'état ---------- */
+
+.status {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 6px 16px;
+  border-top: 1px solid var(--ark-hair);
+  background: var(--ark-wash);
+  font-family: var(--ark-sans);
+  font-size: 0.78rem;
+  color: var(--ark-mute);
+  font-variant-numeric: tabular-nums;
+}
+
+.statusRight {
+  display: flex;
+  gap: 16px;
+}
+
+@media (max-width: 600px) {
+  .editor {
+    --ed-fs: 13px;
+    --ed-lh: 22px;
+    --ed-gutter: 46px;
+  }
+
+  .gutter {
+    padding-right: 10px;
+  }
+
+  .statusRight span:not(:first-child) {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .band {
+    transition: none;
+  }
+}
