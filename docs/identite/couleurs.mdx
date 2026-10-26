@@ -8,33 +8,33 @@ import { ColorGrid } from '@site/src/components/Brand';
 
 # Couleurs
 
-L'identité repose sur un charbon posé sur un fond clair et neutre, doux pour les yeux. Les gris brume et pierre servent à la hiérarchie de l'interface. Une seule couleur vient les ponctuer : l'<mark>Améthyste Arkerion</mark>, la couleur signature de la marque.
+L'identité repose sur un charbon posé sur un fond blanc. Des gris neutres, sans teinte, servent à la hiérarchie de l'interface. Une seule couleur vient les ponctuer : l'<mark>Améthyste Arkerion</mark>, la couleur signature de la marque.
 
 ## Palette
 
 <ColorGrid
   colors={[
-    { name: 'Neige', hex: '#FAFAFB', role: 'fond de page, espace négatif' },
-    { name: 'Brume', hex: '#F0EFF3', role: 'surfaces, code, en-têtes de tableau' },
-    { name: 'Pierre', hex: '#D5D3DB', role: 'filets marqués, blocs de code' },
-    { name: 'Ardoise', hex: '#8D8A94', role: 'décor, icônes, séparateurs' },
-    { name: 'Charbon', hex: '#26252B', role: 'texte principal, logo' },
-    { name: 'Texte courant', hex: '#47454E', role: 'paragraphes' },
-    { name: 'Légendes', hex: '#68656F', role: 'métadonnées' },
+    { name: 'Blanc', hex: '#FFFFFF', role: 'fond de page, espace négatif' },
+    { name: 'Brume', hex: '#F6F6F7', role: 'surfaces, code, en-têtes de tableau' },
+    { name: 'Pierre', hex: '#DCDCE0', role: 'bordures marquées' },
+    { name: 'Ardoise', hex: '#8E8E96', role: 'décor, icônes, séparateurs' },
+    { name: 'Charbon', hex: '#1F1F23', role: 'texte principal, logo' },
+    { name: 'Texte courant', hex: '#4A4A52', role: 'paragraphes' },
+    { name: 'Légendes', hex: '#6B6B73', role: 'métadonnées' },
     { name: 'Améthyste Arkerion', hex: '#6E569F', role: 'sélection, liens, états actifs' },
     { name: 'Améthyste sombre', hex: '#B4A4D6', role: 'version pour fond sombre' },
   ]}
 />
 
-La base est une gamme de gris neutres, à peine teintés d'améthyste pour s'accorder à la couleur signature, sans tirer vers le jaune ni vers le bleu (`#FAFAFB` `#F0EFF3` `#D5D3DB` `#8D8A94` `#26252B`). Deux teintes intermédiaires, *Texte courant* et *Légendes*, servent au texte : l'ardoise `#8D8A94` n'atteint que 3,3:1 sur le fond, elle ne porte donc pas de texte.
+La base est un fond blanc et une gamme de gris parfaitement neutres (`#FFFFFF` `#F6F6F7` `#DCDCE0` `#8E8E96` `#1F1F23`). Sans teinte, ils laissent l'améthyste seule couleur de la page. Deux teintes intermédiaires, *Texte courant* et *Légendes*, servent au texte : l'ardoise `#8E8E96` n'atteint que 3,3:1 sur le fond, elle ne porte donc pas de texte.
 
 ## Proportions
 
-Sur un support type, le fond neige domine, le charbon porte le texte et le logo, les gris brume et pierre structurent, et l'améthyste reste ponctuelle.
+Sur un support type, le fond blanc domine, le charbon porte le texte et le logo, les gris brume et pierre structurent, et l'améthyste reste ponctuelle.
 
 | Couleur | Part indicative |
 |---|---|
-| Neige | 46 % |
+| Blanc | 46 % |
 | Charbon | 34 % |
 | Brume, pierre, ardoise | 16 % |
 | Améthyste Arkerion | 4 % |
@@ -52,7 +52,7 @@ L'améthyste ponctue une page claire et charbon. Sélectionnez une phrase de cet
 | Lignes de code mises en avant | fond améthyste très léger et liseré |
 
 :::tip
-L'Améthyste `#6E569F` s'utilise en texte sur le fond clair (contraste de 5,8:1). Sur fond sombre, utilisez sa version claire `#B4A4D6`.
+L'Améthyste `#6E569F` s'utilise en texte sur le fond blanc (contraste de 6:1). Sur fond sombre, utilisez sa version claire `#B4A4D6`.
 :::
 
 :::warning
@@ -63,13 +63,13 @@ L'améthyste ne sert jamais de grand aplat de fond, et elle ne colore jamais le 
 
 ```css title="couleurs.css"
 :root {
-  --ark-paper: #fafafb;       /* neige */
-  --ark-wash: #f0eff3;        /* brume */
-  --ark-stone: #d5d3db;       /* pierre */
-  --ark-taupe: #8d8a94;       /* ardoise */
-  --ark-ink: #26252b;         /* charbon */
-  --ark-soft: #47454e;        /* texte courant */
-  --ark-mute: #68656f;        /* légendes */
+  --ark-paper: #ffffff;       /* blanc */
+  --ark-wash: #f6f6f7;        /* brume */
+  --ark-stone: #dcdce0;       /* pierre */
+  --ark-taupe: #8e8e96;       /* ardoise */
+  --ark-ink: #1f1f23;         /* charbon */
+  --ark-soft: #4a4a52;        /* texte courant */
+  --ark-mute: #6b6b73;        /* légendes */
   --ark-signal: #6e569f;      /* Améthyste Arkerion */
   --ark-signal-soft: rgba(110, 86, 159, 0.12);
   --ark-signal-dark: #b4a4d6; /* sur fond sombre */

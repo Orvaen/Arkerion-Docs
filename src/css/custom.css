@@ -1,5 +1,5 @@
-/* Arkerion Docs — thème clair : polices Arkerion, charbon sur fond neige
-   (gris neutres à peine teintés d'améthyste, ni jaunes ni bleus),
+/* Arkerion Docs — thème clair : polices Arkerion, charbon sur fond blanc,
+   gris neutres sans teinte (l'améthyste est la seule couleur),
    et l'Améthyste comme couleur signature (sélection, liens, états actifs, focus). */
 
 @font-face {
@@ -44,15 +44,15 @@
   --ifm-h2-font-size: 1.75rem;
   --ifm-h3-font-size: 1.25rem;
 
-  /* Palette claire */
-  --ark-paper: #fafafb;          /* neige : fond de page, espace négatif */
-  --ark-wash: #f0eff3;           /* brume : surfaces, code, cartes */
-  --ark-stone: #d5d3db;          /* pierre : filets marqués, bordures actives */
-  --ark-taupe: #8d8a94;          /* ardoise : décor, icônes, séparateurs */
-  --ark-ink: #26252b;            /* charbon : texte principal, logo (14,6:1) */
-  --ark-soft: #47454e;           /* texte courant (9:1 sur neige) */
-  --ark-mute: #68656f;           /* légendes, métadonnées (5,5:1 sur neige) */
-  --ark-hair: #e5e4ea;           /* filets fins entre neige et brume */
+  /* Palette claire : fond blanc, gris neutres hiérarchisés */
+  --ark-paper: #ffffff;          /* blanc : fond de page, espace négatif */
+  --ark-wash: #f6f6f7;           /* brume : surfaces, code, cartes */
+  --ark-stone: #dcdce0;          /* pierre : bordures marquées */
+  --ark-taupe: #8e8e96;          /* ardoise : décor, icônes, séparateurs */
+  --ark-ink: #1f1f23;            /* charbon : texte principal, logo (16,4:1) */
+  --ark-soft: #4a4a52;           /* texte courant (8,8:1 sur blanc) */
+  --ark-mute: #6b6b73;           /* légendes, métadonnées (5,3:1 sur blanc) */
+  --ark-hair: #ececef;           /* filets fins */
   --ark-signal: #6e569f;         /* Améthyste Arkerion */
   --ark-signal-soft: rgba(110, 86, 159, 0.12); /* fonds actifs, surlignage */
   --ark-signal-deep: #5b4587;    /* survol, texte actif */
@@ -76,18 +76,18 @@
   --ifm-dropdown-background-color: var(--ark-paper);
   --ifm-card-background-color: var(--ark-wash);
   --ifm-toc-border-color: var(--ark-hair);
-  --ifm-color-emphasis-100: #f4f3f6;
+  --ifm-color-emphasis-100: #f6f6f7;
   --ifm-color-emphasis-200: var(--ark-hair);
   --ifm-color-emphasis-300: var(--ark-stone);
   --ifm-color-emphasis-600: var(--ark-mute);
-  --ifm-table-stripe-background: rgba(38, 37, 43, 0.03);
+  --ifm-table-stripe-background: rgba(31, 31, 35, 0.03);
   --ifm-hr-border-color: var(--ark-hair);
   --ifm-navbar-shadow: none;
   --ifm-navbar-height: 3.75rem;
   --ifm-code-background: var(--ark-wash);
   --ifm-code-border-radius: 5px;
   --ifm-code-padding-horizontal: 0.36em;
-  --ifm-pre-background: #f3f2f6;
+  --ifm-pre-background: #f6f6f7;
   --ifm-pre-line-height: 1.65;
   --ifm-global-radius: 8px;
   --docusaurus-highlighted-code-line-bg: rgba(110, 86, 159, 0.1);
