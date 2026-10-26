@@ -40,7 +40,7 @@
   --ifm-font-weight-bold: 400;
   --ifm-font-weight-semibold: 400;
   --ifm-code-font-size: 88%;
-  --ifm-h1-font-size: 2.6rem;
+  --ifm-h1-font-size: 2.4rem;
   --ifm-h2-font-size: 1.75rem;
   --ifm-h3-font-size: 1.25rem;
 
@@ -94,15 +94,15 @@
 }
 
 [data-theme='dark'] {
-  /* Version sombre : la palette inversée, charbon chaud et texte crème. */
-  --ark-paper: #1e1d1b;
-  --ark-wash: #282624;
-  --ark-stone: #4a4742;
-  --ark-taupe: #8e8a83;
-  --ark-ink: #f3ecdf;
-  --ark-soft: #cfc9be;
-  --ark-mute: #a19c93;
-  --ark-hair: #34322e;
+  /* Version sombre : mêmes gris neutres, à peine teintés d'améthyste. */
+  --ark-paper: #17171a;
+  --ark-wash: #1f1f23;
+  --ark-stone: #3a3940;
+  --ark-taupe: #8d8a94;
+  --ark-ink: #ecebf0;
+  --ark-soft: #c4c2cc;
+  --ark-mute: #9a97a3;
+  --ark-hair: #2a2a30;
   --ark-signal: #b4a4d6;
   --ark-signal-soft: rgba(180, 164, 214, 0.16);
   --ark-signal-deep: #cbbee4;
@@ -124,11 +124,11 @@
   --ifm-dropdown-background-color: var(--ark-wash);
   --ifm-card-background-color: var(--ark-wash);
   --ifm-font-color-base: var(--ark-ink);
-  --ifm-color-emphasis-100: #242220;
+  --ifm-color-emphasis-100: #1c1c20;
   --ifm-color-emphasis-200: var(--ark-hair);
   --ifm-color-emphasis-300: var(--ark-stone);
   --ifm-color-emphasis-600: var(--ark-mute);
-  --ifm-pre-background: #23211f;
+  --ifm-pre-background: #1c1c20;
   --docusaurus-highlighted-code-line-bg: rgba(180, 164, 214, 0.14);
 }
 
@@ -151,7 +151,12 @@ body {
 }
 
 .navbar__link {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
+  color: var(--ark-soft);
+}
+
+.navbar__link:hover {
+  color: var(--ark-ink);
 }
 
 /* Code : ligatures Arkerion Mono activées. */
@@ -214,7 +219,32 @@ pre code {
 }
 
 .menu__link {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
+  color: var(--ark-soft);
+}
+
+.menu__link:hover {
+  color: var(--ark-ink);
+  background: var(--ark-wash);
+}
+
+/* Catégories de la barre latérale : petites capitales discrètes. */
+.menu__list-item-collapsible > .menu__link--sublist,
+.menu__link--sublist-caret {
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ark-mute);
+}
+
+.theme-doc-sidebar-container {
+  border-right-color: var(--ark-hair) !important;
+}
+
+/* Titre de page : un peu plus d'air dessous. */
+.markdown h1:first-child {
+  letter-spacing: -0.015em;
+  margin-bottom: 1rem;
 }
 
 .alert {
