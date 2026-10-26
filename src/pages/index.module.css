@@ -222,7 +222,7 @@
   border: 1px solid var(--ark-hair);
   border-radius: 16px;
   padding: 26px;
-  background: var(--ark-paper);
+  background: var(--ark-sunken);
   min-width: 0;
 }
 
@@ -234,7 +234,7 @@
   gap: 28px;
   background:
     radial-gradient(120% 80% at 0% 0%, var(--ark-signal-soft), transparent 60%),
-    var(--ark-paper);
+    var(--ark-sunken);
 }
 
 .tileArt {
@@ -251,6 +251,10 @@
   gap: 26px;
   align-items: center;
   background: var(--ark-wash);
+}
+
+:global([data-theme='dark']) .tileFonts {
+  background: var(--ark-sunken);
 }
 
 .specimens {

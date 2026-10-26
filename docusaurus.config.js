@@ -97,7 +97,7 @@ const config = {
       prism: {
         // Fonds de code accordés aux thèmes clair et sombre.
         theme: { ...prismThemes.github, plain: { ...prismThemes.github.plain, backgroundColor: '#F6F6F7' } },
-        darkTheme: { ...prismThemes.vsDark, plain: { ...prismThemes.vsDark.plain, backgroundColor: '#1C1C20' } },
+        darkTheme: { ...prismThemes.vsDark, plain: { ...prismThemes.vsDark.plain, backgroundColor: '#1A1A19' } },
         additionalLanguages: ['bash', 'json'],
       },
       tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 3 },

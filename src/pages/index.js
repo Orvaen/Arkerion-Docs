@@ -216,7 +216,7 @@ export default function Home() {
               <div>
                 <h3 className={styles.h3}>
                   {fonts.title}
-                  <span className={styles.badge}>Sans v0.13</span>
+                  <span className={styles.badge}>Sans v0.14</span>
                 </h3>
                 <p className={styles.entryText}>{fonts.text}</p>
                 <LinkList links={fonts.links} />
