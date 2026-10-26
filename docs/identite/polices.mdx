@@ -80,7 +80,7 @@ Dans la plupart des terminaux, choisissez *Arkerion Mono* dans les préférences
 
 ## Statut
 
-:::caution Versions d'étude : Arkerion Sans 0.14, Arkerion Mono 0.2
+:::caution Versions d'étude : Arkerion Sans 0.15, Arkerion Mono 0.2
 En 0.2, le p, le q, le b, le d et le r d'Arkerion Sans sont reconstruits à partir de l'arche du n : panses plus droites, jonctions plus fines, et un r au bras plus long coupé à plat (script `sources/retouches_v0_2.py`).
 
 En 0.3, le o et le O sont élargis (+45 et +61 unités) en gardant leur ovale, leurs épaisseurs et leur espacement ; ô et Q suivent (script `sources/retouches_v0_3.py`).
@@ -106,6 +106,8 @@ En 0.12, l'apostrophe est crénée avec le A (« d'Arkerion » n'est plus décol
 En 0.13, le y est redessiné : plus de pied parasite sous la jonction, et une queue qui tourne en courbe vers un bras plat, comme celle du g (script `sources/retouches_v0_13.py`).
 
 En 0.14 (et Arkerion Mono 0.2), les métriques verticales sont unifiées : macOS et Windows lisaient des valeurs différentes, et sous Windows le texte remontait d'environ 70 unités dans les boutons et les pastilles. Il est maintenant centré comme dans les polices système (script `sources/metriques_verticales.py`, appliqué aussi à la police du logo).
+
+En 0.15, le G est redessiné dans la famille du O : même ovale et mêmes épaisseurs, 50 unités plus étroit (750 unités de chasse), terminal du haut coupé à l'horizontale et barre qui s'arrête dans le trait, sans fût (script `sources/retouches_v0_15.py`).
 
 Les polices sont générées par paramètres à partir des sources du dossier `sources/`. Avant un usage en production :
 
