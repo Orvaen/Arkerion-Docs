@@ -47,7 +47,7 @@ sources/              générateur Python des polices (fontTools)
 
 ## Polices
 
-Versions d'étude : Arkerion Sans 0.8 (p, q, b, d et r redessinés à partir de l'arche du n ; o, O, c, ç, a, e, p, q, b et d élargis ; A à empattements ; f et g géométriques), Arkerion Mono 0.1. Les polices couvrent l'alphabet latin de base, les chiffres, la ponctuation de code et les accents français courants ; Arkerion Mono a dix ligatures de code (`=> -> <- == === != !== <= >= <=>`). La suite du travail est décrite sur la page *Polices* de la documentation.
+Versions d'étude : Arkerion Sans 0.9 (p, q, b, d et r redessinés à partir de l'arche du n ; o, O, c, ç, a, e, p, q, b et d élargis ; A à empattements ; a, f et g redessinés), Arkerion Mono 0.1. Les polices couvrent l'alphabet latin de base, les chiffres, la ponctuation de code et les accents français courants ; Arkerion Mono a dix ligatures de code (`=> -> <- == === != !== <= >= <=>`). La suite du travail est décrite sur la page *Polices* de la documentation.
 
 ---
 
