@@ -1,0 +1,60 @@
+name: Hinter les polices
+
+# Les TTF générés par sources/tools/otf2ttf.py n'ont aucune instruction de
+# hinting : aux petites tailles (éditeur de code, texte courant), les fûts
+# tombent entre deux pixels et le texte paraît flou. Ce workflow passe
+# ttfautohint sur les TTF qui n'en ont pas encore, recopie le résultat dans
+# src/fonts, pousse le commit, puis relance la publication de la doc.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'static/fonts/*.ttf'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  hint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Installer ttfautohint
+        run: pip install fonttools ttfautohint-py
+      - name: Hinter les TTF sans hinting
+        shell: bash
+        run: |
+          set -euo pipefail
+          for f in static/fonts/ArkerionSans-Regular.ttf static/fonts/ArkerionMono-Regular.ttf; do
+            if python -c "import sys; from fontTools.ttLib import TTFont; sys.exit(0 if 'fpgm' in TTFont(sys.argv[1]) else 1)" "$f"; then
+              echo "$f : déjà hinté"
+              continue
+            fi
+            # qss : quantifié en niveaux de gris, fûts nets (strong) en ClearType GDI et DirectWrite.
+            # -x 14 : hauteur d'x arrondie vers le haut jusqu'à 14 px, pour la lisibilité en petit.
+            # -W : métriques Windows prises en compte (pas de lignes coupées).
+            python -m ttfautohint --stem-width-mode=qss --increase-x-height=14 \
+              --windows-compatibility --hinting-range-min=8 --hinting-range-max=50 \
+              "$f" "$f.hinted"
+            mv "$f.hinted" "$f"
+            cp "$f" "src/fonts/$(basename "$f")"
+            echo "$f : hinté"
+          done
+      - name: Pousser le résultat
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet; then echo "Rien à pousser"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898299+github-actions[bot]@users.noreply.github.com"
+          git commit -am "Polices : hinting ttfautohint des TTF"
+          git push
+          # Un push fait avec ce jeton ne déclenche pas d'autre workflow : on relance la publication.
+          gh workflow run deploy.yml --ref main
