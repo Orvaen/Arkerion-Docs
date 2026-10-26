@@ -3,10 +3,11 @@ import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
 import CodeBlock from '@theme/CodeBlock';
+import { Mark } from '@site/src/components/Brand';
 import styles from './index.module.css';
 
-/* Page d'accueil : en-tête et boutons, exemples de code à onglets, points
-   d'entrée, parcours en quatre étapes, polices, puis liens pour continuer.
+/* Page d'accueil : en-tête en deux colonnes (texte, code), mosaïque de trois
+   entrées, parcours en un panneau, puis une barre de liens pour continuer.
    Tout le contenu renvoie à des pages qui existent dans la documentation. */
 
 const SNIPPETS = [
@@ -110,34 +111,6 @@ const STEPS = [
   },
 ];
 
-const FONTS = [
-  {
-    name: 'Arkerion Sans',
-    to: '/docs/identite/typographie',
-    sample: 'Aa',
-    sampleClass: 'sans',
-    badge: 'v0.13',
-    tags: ['Interface', 'Titres'],
-    text: 'La police de la marque : A et N à empattements, f et g géométriques.',
-  },
-  {
-    name: 'Arkerion Mono',
-    to: '/docs/identite/polices',
-    sample: '=> !=',
-    sampleClass: 'mono',
-    tags: ['Code', 'Ligatures'],
-    text: 'Pour les éditeurs et les terminaux, avec dix ligatures de code.',
-  },
-  {
-    name: 'Arkerion Sans v2',
-    to: '/docs/identite/arkerion-sans-v2',
-    sample: 'Ark',
-    sampleClass: 'wordmark',
-    tags: ['Étude', 'Nom Arkerion'],
-    text: "Les quatorze lettres du nom, redessinées pour le logo.",
-  },
-];
-
 const MORE = [
   ['Logo', 'Versions, zones de protection et usages.', '/docs/identite/logo'],
   ['Couleurs', "La palette claire et l'Améthyste Arkerion.", '/docs/identite/couleurs'],
@@ -152,6 +125,20 @@ function SmartLink({ to, className, children }) {
       {children}
       {to.startsWith('http') && <span className={styles.ext} aria-hidden="true">↗</span>}
     </Link>
+  );
+}
+
+function LinkList({ links }) {
+  return (
+    <ul className={styles.linkList}>
+      {links.map(([label, to]) => (
+        <li key={label}>
+          <SmartLink to={to} className={styles.arrowLink}>
+            {label}
+          </SmartLink>
+        </li>
+      ))}
+    </ul>
   );
 }
 
@@ -181,108 +168,101 @@ function Snippets() {
 }
 
 export default function Home() {
+  const [identity, fonts, nebula] = ENTRIES;
   return (
     <Layout title="Accueil" description="Documentation d'Arkerion, entreprise de développement web et logiciel.">
       <main className={styles.page}>
         <header className={styles.hero}>
-          <p className={styles.eyebrow}>Documentation Arkerion</p>
-          <h1 className={styles.title}>Construire avec Arkerion</h1>
-          <p className={styles.lead}>
-            L'identité, les polices et les produits d'Arkerion, entreprise de développement web et logiciel.
-          </p>
-          <div className={styles.ctas}>
-            <Link className={clsx(styles.btn, styles.btnPrimary)} to="/docs/intro">
-              Commencer
-            </Link>
-            <Link className={clsx(styles.btn, styles.btnSecondary)} to="/docs/identite/polices">
-              Utiliser les polices
-            </Link>
-            <SmartLink className={clsx(styles.btn, styles.btnGhost)} to="https://github.com/Orvaen/Arkerion-Docs">
-              Code source
-            </SmartLink>
+          <div className={styles.heroText}>
+            <p className={styles.eyebrow}>Documentation Arkerion</p>
+            <h1 className={styles.title}>Construire avec Arkerion</h1>
+            <p className={styles.lead}>
+              L'identité, les polices et les produits d'Arkerion, entreprise de développement web et logiciel.
+            </p>
+            <div className={styles.ctas}>
+              <Link className={clsx(styles.btn, styles.btnPrimary)} to="/docs/intro">
+                Commencer
+              </Link>
+              <Link className={clsx(styles.btn, styles.btnSecondary)} to="/docs/identite/polices">
+                Utiliser les polices
+              </Link>
+              <SmartLink className={clsx(styles.btn, styles.btnGhost)} to="https://github.com/Orvaen/Arkerion-Docs">
+                Code source
+              </SmartLink>
+            </div>
           </div>
           <Snippets />
         </header>
 
         <section className={styles.section}>
-          <h2 className={styles.h2}>Par où commencer</h2>
-          <p className={styles.sub}>Trois portes d'entrée, selon ce que vous venez chercher.</p>
-          <div className={styles.entries}>
-            {ENTRIES.map((e) => (
-              <div key={e.title} className={styles.entry}>
-                <h3 className={styles.h3}>{e.title}</h3>
-                <p className={styles.entryText}>{e.text}</p>
-                <ul className={styles.linkList}>
-                  {e.links.map(([label, to]) => (
-                    <li key={label}>
-                      <SmartLink to={to} className={styles.arrowLink}>
-                        {label}
-                      </SmartLink>
-                    </li>
-                  ))}
-                </ul>
+          <h2 className={styles.h2}>Explorer</h2>
+          <div className={styles.bento}>
+            <div className={clsx(styles.tile, styles.tileIdentity)}>
+              <span className={styles.tileArt} aria-hidden="true">
+                <Mark size={96} />
+              </span>
+              <div>
+                <h3 className={styles.h3}>{identity.title}</h3>
+                <p className={styles.entryText}>{identity.text}</p>
+                <LinkList links={identity.links} />
               </div>
-            ))}
+            </div>
+
+            <div className={clsx(styles.tile, styles.tileFonts)}>
+              <div className={styles.specimens} aria-hidden="true">
+                <span className={clsx(styles.sample, styles.sans)}>Aa</span>
+                <span className={clsx(styles.sample, styles.mono)}>{'=>'}</span>
+              </div>
+              <div>
+                <h3 className={styles.h3}>
+                  {fonts.title}
+                  <span className={styles.badge}>Sans v0.13</span>
+                </h3>
+                <p className={styles.entryText}>{fonts.text}</p>
+                <LinkList links={fonts.links} />
+              </div>
+            </div>
+
+            <div className={clsx(styles.tile, styles.tileNebula)}>
+              <h3 className={styles.h3}>{nebula.title}</h3>
+              <p className={styles.entryText}>{nebula.text}</p>
+              <LinkList links={nebula.links} />
+            </div>
           </div>
         </section>
 
         <section className={styles.section}>
-          <h2 className={styles.h2}>De l'idée à la page publiée</h2>
-          <p className={styles.sub}>Le parcours d'une page de cette documentation, en quatre étapes.</p>
-          <ol className={styles.steps}>
-            {STEPS.map((s, i) => (
-              <li key={s.title} className={styles.step}>
-                <span className={styles.stepNum}>{i + 1}</span>
-                <h3 className={styles.h3}>{s.title}</h3>
-                <ul className={styles.stepLinks}>
-                  {s.links.map(([label, to]) => (
-                    <li key={label}>
-                      <SmartLink to={to}>{label}</SmartLink>
-                    </li>
-                  ))}
-                </ul>
-              </li>
-            ))}
-          </ol>
-        </section>
-
-        <section className={styles.section}>
-          <h2 className={styles.h2}>Les polices Arkerion</h2>
-          <p className={styles.sub}>Dessinées pour la marque, et utilisées sur tout ce site.</p>
-          <div className={styles.fonts}>
-            {FONTS.map((f) => (
-              <Link key={f.name} to={f.to} className={styles.fontCard}>
-                <span className={clsx(styles.sample, styles[f.sampleClass])} aria-hidden="true">
-                  {f.sample}
-                </span>
-                <span className={styles.fontName}>
-                  {f.name}
-                  {f.badge && <span className={styles.badge}>{f.badge}</span>}
-                </span>
-                <span className={styles.tags}>
-                  {f.tags.map((t) => (
-                    <span key={t} className={styles.tag}>
-                      {t}
-                    </span>
-                  ))}
-                </span>
-                <span className={styles.fontText}>{f.text}</span>
-              </Link>
-            ))}
+          <div className={styles.panel}>
+            <div className={styles.panelHead}>
+              <h2 className={styles.h2}>De l'idée à la page publiée</h2>
+              <p className={styles.sub}>Le parcours d'une page de cette documentation.</p>
+            </div>
+            <ol className={styles.steps}>
+              {STEPS.map((s, i) => (
+                <li key={s.title} className={styles.step}>
+                  <span className={styles.stepNum}>{i + 1}</span>
+                  <h3 className={styles.h3}>{s.title}</h3>
+                  <ul className={styles.stepLinks}>
+                    {s.links.map(([label, to]) => (
+                      <li key={label}>
+                        <SmartLink to={to}>{label}</SmartLink>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ))}
+            </ol>
           </div>
         </section>
 
-        <section className={clsx(styles.section, styles.last)}>
-          <h2 className={styles.h2}>Continuer</h2>
-          <div className={styles.more}>
-            {MORE.map(([title, text, to]) => (
-              <SmartLink key={title} to={to} className={styles.moreCard}>
-                <span className={styles.moreTitle}>{title}</span>
-                <span className={styles.moreText}>{text}</span>
-              </SmartLink>
-            ))}
-          </div>
-        </section>
+        <nav className={styles.more} aria-label="Continuer">
+          <span className={styles.moreLabel}>Continuer</span>
+          {MORE.map(([title, , to]) => (
+            <SmartLink key={title} to={to} className={styles.moreLink}>
+              {title}
+            </SmartLink>
+          ))}
+        </nav>
       </main>
     </Layout>
   );
