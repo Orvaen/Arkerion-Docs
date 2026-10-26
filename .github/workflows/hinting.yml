@@ -37,9 +37,9 @@ jobs:
               continue
             fi
             # qss : quantifié en niveaux de gris, fûts nets (strong) en ClearType GDI et DirectWrite.
-            # -x 14 : hauteur d'x arrondie vers le haut jusqu'à 14 px, pour la lisibilité en petit.
+            # -x 0 : hauteur d'x non forcée vers le haut (sinon le point du i se colle au fût en petit).
             # -W : métriques Windows prises en compte (pas de lignes coupées).
-            python -m ttfautohint --stem-width-mode=qss --increase-x-height=14 \
+            python -m ttfautohint --stem-width-mode=qss --increase-x-height=0 \
               --windows-compatibility --hinting-range-min=8 --hinting-range-max=50 \
               "$f" "$f.hinted"
             mv "$f.hinted" "$f"
