@@ -84,7 +84,7 @@ Un éditeur de test, fait maison, pour voir Arkerion Mono en situation : numéro
 
 ## Statut
 
-:::caution Versions d'étude : Arkerion Sans 0.15, Arkerion Mono 0.2
+:::caution Versions d'étude : Arkerion Sans 0.15, Arkerion Mono 0.3
 En 0.2, le p, le q, le b, le d et le r d'Arkerion Sans sont reconstruits à partir de l'arche du n : panses plus droites, jonctions plus fines, et un r au bras plus long coupé à plat (script `sources/retouches_v0_2.py`).
 
 En 0.3, le o et le O sont élargis (+45 et +61 unités) en gardant leur ovale, leurs épaisseurs et leur espacement ; ô et Q suivent (script `sources/retouches_v0_3.py`).
@@ -112,6 +112,8 @@ En 0.13, le y est redessiné : plus de pied parasite sous la jonction, et une qu
 En 0.14 (et Arkerion Mono 0.2), les métriques verticales sont unifiées : macOS et Windows lisaient des valeurs différentes, et sous Windows le texte remontait d'environ 70 unités dans les boutons et les pastilles. Il est maintenant centré comme dans les polices système (script `sources/metriques_verticales.py`, appliqué aussi à la police du logo).
 
 En 0.15, le G est redessiné dans la famille du O : même ovale et mêmes épaisseurs, 50 unités plus étroit (750 unités de chasse), terminal du haut coupé à l'horizontale et barre qui s'arrête dans le trait, sans fût (script `sources/retouches_v0_15.py`).
+
+En Mono 0.3, le point du i et du j est remonté (650 à 778 unités, 99 au-dessus de la hauteur d'x) : en 13 px, il se collait au fût une fois le hinting appliqué (script `sources/mono_retouches_v0_3.py`). Les TTF des deux polices sont désormais hintés par ttfautohint à chaque modification (workflow `.github/workflows/hinting.yml`), ce qui rend le texte net aux petites tailles, en particulier dans un éditeur sous Windows.
 
 Les polices sont générées par paramètres à partir des sources du dossier `sources/`. Avant un usage en production :
 
