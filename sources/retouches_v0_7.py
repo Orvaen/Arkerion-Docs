@@ -1,7 +1,7 @@
 """Arkerion Sans v0.7 — e encore élargi (validé : variante « E1 », +25).
 
 Le e (et é è ê ë) prend 25 unités de plus après la v0.6 : 591 unités de
-chasse, exactement la largeur du o. Même méthode : la moitié droite s'écarte
+chasse, un peu plus que le o (581). Même méthode : la moitié droite s'écarte
 (axe x = 317, le centre du e après la v0.6), terminaisons et épaisseurs
 inchangées, accents recentrés.
 
