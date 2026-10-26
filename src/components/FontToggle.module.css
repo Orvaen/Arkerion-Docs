@@ -1,0 +1,60 @@
+/* Sélecteur Arkerion / Système : deux segments dans une pastille.
+   Chaque libellé est écrit dans la police qu'il active, pour un aperçu direct. */
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px;
+  border: 1px solid var(--ark-stone);
+  border-radius: 999px;
+  background: var(--ark-wash);
+  gap: 2px;
+}
+
+.option {
+  appearance: none;
+  border: 0;
+  margin: 0;
+  padding: 0.22rem 0.7rem;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ark-mute);
+  font-size: 0.82rem;
+  line-height: 1.4;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.option:hover {
+  color: var(--ark-ink);
+}
+
+.option:focus-visible {
+  outline: 2px solid var(--ark-signal);
+  outline-offset: 1px;
+}
+
+.active,
+.active:hover {
+  background: var(--ark-signal-soft);
+  color: var(--ark-signal-deep);
+}
+
+.arkerion {
+  font-family: 'Arkerion Sans', system-ui, sans-serif;
+}
+
+.system {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Dans le menu mobile, le sélecteur se place sous les liens. */
+.mobile {
+  margin: 0.5rem 0.75rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .option {
+    transition: none;
+  }
+}

@@ -28,10 +28,12 @@
 }
 
 :root {
-  --ifm-font-family-base: 'Arkerion Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --ark-sans: 'Arkerion Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --ark-system: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --ifm-font-family-base: var(--ark-sans);
   --ark-wordmark: 'Arkerion Wordmark', 'Arkerion Sans', system-ui, sans-serif;
   --ifm-font-family-monospace: 'Arkerion Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
-  --ifm-heading-font-family: 'Arkerion Sans', system-ui, sans-serif;
+  --ifm-heading-font-family: var(--ark-sans);
   --ifm-font-size-base: 16px;
   --ifm-line-height-base: 1.65;
   --ifm-heading-font-weight: 400;
@@ -299,4 +301,12 @@ mark {
 input,
 textarea {
   caret-color: var(--ark-signal);
+}
+
+/* Sélecteur Arkerion / Système (barre de navigation) : la doc passe dans la
+   police sans du système. Le code reste en Arkerion Mono, le logo et les
+   spécimens de la page Typographie restent en Arkerion. */
+html[data-font='system'] {
+  --ifm-font-family-base: var(--ark-system);
+  --ifm-heading-font-family: var(--ark-system);
 }

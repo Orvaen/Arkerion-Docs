@@ -13,6 +13,16 @@ const config = {
   projectName: 'Arkerion-Docs',
   trailingSlash: false,
 
+  // Réapplique le choix du sélecteur de police avant l'affichage (pas de flash).
+  headTags: [
+    {
+      tagName: 'script',
+      attributes: {},
+      innerHTML:
+        "try{if(localStorage.getItem('arkerion-font')==='system')document.documentElement.dataset.font='system'}catch(e){}",
+    },
+  ],
+
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
@@ -52,6 +62,7 @@ const config = {
           { type: 'docSidebar', sidebarId: 'docs', position: 'left', label: 'Documentation' },
           { to: '/docs/identite/logo', position: 'left', label: 'Identité' },
           { to: '/docs/produits/nebula', position: 'left', label: 'Nebula' },
+          { type: 'custom-fontToggle', position: 'right' },
           { href: 'https://github.com/Orvaen/Arkerion-Docs', position: 'right', label: 'GitHub' },
         ],
       },
