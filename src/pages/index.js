@@ -64,8 +64,8 @@ const ENTRIES = [
     title: 'Polices',
     text: "Arkerion Sans pour l'interface, Arkerion Mono pour le code.",
     links: [
+      ['Télécharger les polices', '/docs/identite/polices#telecharger'],
       ['Installer les polices', '/docs/identite/polices'],
-      ['Arkerion Sans v2', '/docs/identite/arkerion-sans-v2'],
     ],
   },
   {

@@ -24,6 +24,10 @@ jobs:
           node-version: 22
       - name: Installer les dépendances
         run: npm install --no-audit --no-fund
+      - name: Archive des polices
+        run: |
+          cd static/fonts
+          zip -q -9 arkerion-polices.zip ArkerionSans-Regular.ttf ArkerionSans-Regular.otf ArkerionMono-Regular.ttf ArkerionMono-Regular.otf
       - name: Construire le site
         shell: bash
         run: |

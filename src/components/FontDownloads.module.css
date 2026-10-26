@@ -1,0 +1,120 @@
+.wrap {
+  margin: 1.25rem 0 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 84px minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid var(--ark-hair);
+  background: var(--ark-wash);
+}
+
+.sample {
+  font-family: var(--ark-sans);
+  font-size: 3.2rem;
+  line-height: 1;
+  color: var(--ark-ink);
+  text-align: center;
+}
+
+.sampleMono {
+  font-family: var(--ifm-font-family-monospace);
+  font-feature-settings: 'calt' 1;
+  font-size: 2.3rem;
+  color: var(--ark-signal);
+}
+
+.meta {
+  min-width: 0;
+}
+
+.name {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--ark-ink);
+}
+
+.version {
+  margin-left: 4px;
+  padding: 1px 7px;
+  font-size: 0.72rem;
+  background: var(--ark-signal-soft);
+  color: var(--ark-signal-deep);
+  font-variant-numeric: tabular-nums;
+  vertical-align: 2px;
+}
+
+.role {
+  margin: 4px 0 14px;
+  font-size: 0.9rem;
+  color: var(--ark-mute);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  border: 1px solid var(--ark-stone);
+  background: var(--ark-paper);
+  color: var(--ark-ink) !important;
+  font-size: 0.9rem;
+  line-height: 1.3;
+  text-decoration: none !important;
+  background-image: none !important;   /* pas de soulignement animé des liens du contenu */
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.btn:hover {
+  border-color: var(--ark-signal);
+}
+
+.primary {
+  background: var(--ark-ink);
+  border-color: var(--ark-ink);
+  color: var(--ark-paper) !important;
+}
+
+.primary:hover {
+  background: var(--ark-signal-deep);
+  border-color: var(--ark-signal-deep);
+}
+
+.hint {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+.all {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  margin-top: 14px;
+}
+
+.note {
+  font-size: 0.82rem;
+  color: var(--ark-mute);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+}

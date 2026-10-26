@@ -6,3 +6,4 @@ build/
 npm-debug.log*
 sources/out*/
 sources/__pycache__/
+static/fonts/arkerion-polices.zip
