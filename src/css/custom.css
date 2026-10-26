@@ -340,3 +340,60 @@ html[data-font='system'] {
   --ifm-font-family-base: var(--ark-system);
   --ifm-heading-font-family: var(--ark-system);
 }
+
+/* ------------------------------------------------------------------
+   Barre de défilement : fine, arrondie, aux couleurs de la palette.
+   Le curseur se fond dans le fond, s'affirme au survol et passe à
+   l'améthyste quand on le saisit. Suit le thème clair ou sombre.
+   ------------------------------------------------------------------ */
+
+/* Firefox seulement : dans Chrome récent, ces propriétés standard
+   remplaceraient le style personnalisé ci-dessous. */
+@supports not selector(::-webkit-scrollbar) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--ark-stone) transparent;
+  }
+}
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--ark-stone);
+  border: 3px solid transparent;   /* marge autour du curseur */
+  border-radius: 999px;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--ark-taupe);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: var(--ark-signal);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Blocs de code et barre latérale : curseur plus fin. */
+pre::-webkit-scrollbar,
+.theme-doc-sidebar-menu::-webkit-scrollbar,
+.menu::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+pre::-webkit-scrollbar-thumb,
+.menu::-webkit-scrollbar-thumb {
+  border-width: 2px;
+}
